@@ -1,0 +1,55 @@
+.home__container {
+  background: linear-gradient(180deg, #1f2a63 0%, #17002f 100%);
+  width: var(--max-width);
+  height: var(--main-height);
+  margin: 0 auto;
+  padding-top: 128px;
+  padding-left: 157px;
+  display: flex;
+}
+
+.home__title_wrapper {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.home__title {
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 4px;
+}
+
+.home__title_description {
+  font-size: 32px;
+  line-height: 37px;
+}
+
+.home__link {
+  width: 321px;
+  height: 66px;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 27px;
+  color: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  background-color: #ffc107;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+}
+
+.home__image {
+  width: 783px;
+  height: 678px;
+  background-image: url('../../assets/images/BannerComplete.png');
+}
+
+.home__link:hover {
+  cursor: pointer;
+  box-shadow: inset 0px 9px 0px rgba(0, 0, 0, 0.18);
+}
