@@ -1,6 +1,10 @@
-.home__container {
+.home {
+  width: 100%;
   background: linear-gradient(180deg, #1f2a63 0%, #17002f 100%);
-  width: var(--max-width);
+}
+
+.home__container {
+  max-width: 1440px;
   height: var(--main-height);
   margin: 0 auto;
   padding-top: 128px;
