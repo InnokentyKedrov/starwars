@@ -17,14 +17,18 @@ const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
     <li className={styles.cards__item} onClick={showModal}>
       <h3 className={styles.cards__item_title}>{card.name}</h3>
       <ul className={styles.heightMass__list}>
-        <li className={styles.heightMass__item}>
-          <span className={styles.heightMass__item_ring}>{card.height}</span>
-          <span className={styles.heightMass__item_title}>height</span>
-        </li>
-        <li className={styles.heightMass__item}>
-          <span className={styles.heightMass__item_ring}>{card.mass}</span>
-          <span className={styles.heightMass__item_title}>mass</span>
-        </li>
+        {card.height !== 'unknown' && (
+          <li className={styles.heightMass__item}>
+            <span className={styles.heightMass__item_ring}>{card.height}</span>
+            <span className={styles.heightMass__item_title}>height</span>
+          </li>
+        )}
+        {card.mass !== 'unknown' && (
+          <li className={styles.heightMass__item}>
+            <span className={styles.heightMass__item_ring}>{card.mass}</span>
+            <span className={styles.heightMass__item_title}>mass</span>
+          </li>
+        )}
       </ul>
       <ul className={styles.genderBirth__list}>
         {card.gender !== 'n/a' && (

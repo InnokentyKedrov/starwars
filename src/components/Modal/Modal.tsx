@@ -50,19 +50,29 @@ const Modal: React.FC = () => {
           <div className={styles.modal__right}>
             <h2 className={styles.modal__title}>{state.currentCard.name}</h2>
             <ul className={styles.modal__list}>
-              <li>eye color: {state.currentCard.eye_color}</li>
-              <li>skin color: {state.currentCard.skin_color}</li>
-              <li>hair color: {state.currentCard.hair_color}</li>
+              {state.currentCard.eye_color !== 'n/a' && (
+                <li>eye color: {state.currentCard.eye_color}</li>
+              )}
+              {state.currentCard.skin_color !== 'n/a' && (
+                <li>skin color: {state.currentCard.skin_color}</li>
+              )}
+              {state.currentCard.hair_color !== 'n/a' && (
+                <li>hair color: {state.currentCard.hair_color}</li>
+              )}
             </ul>
             <ul className={styles.heightMass__list}>
-              <li className={styles.heightMass__item}>
-                <span className={styles.heightMass__item_ring}>{state.currentCard.height}</span>
-                <span className={styles.heightMass__item_title}>height</span>
-              </li>
-              <li className={styles.heightMass__item}>
-                <span className={styles.heightMass__item_ring}>{state.currentCard.mass}</span>
-                <span className={styles.heightMass__item_title}>mass</span>
-              </li>
+              {state.currentCard.height !== 'unknown' && (
+                <li className={styles.heightMass__item}>
+                  <span className={styles.heightMass__item_ring}>{state.currentCard.height}</span>
+                  <span className={styles.heightMass__item_title}>height</span>
+                </li>
+              )}
+              {state.currentCard.mass !== 'unknown' && (
+                <li className={styles.heightMass__item}>
+                  <span className={styles.heightMass__item_ring}>{state.currentCard.mass}</span>
+                  <span className={styles.heightMass__item_title}>mass</span>
+                </li>
+              )}
             </ul>
           </div>
         </div>

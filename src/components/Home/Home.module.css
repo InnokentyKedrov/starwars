@@ -45,6 +45,8 @@
   background-color: #ffc107;
   box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
   border-radius: 11px;
+
+  transition: all 0.3s ease-in-out;
 }
 
 .home__image {
@@ -55,5 +57,6 @@
 
 .home__link:hover {
   cursor: pointer;
-  box-shadow: inset 0px 9px 0px rgba(0, 0, 0, 0.18);
+
+  transform: scale(1.1);
 }
