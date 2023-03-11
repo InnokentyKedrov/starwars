@@ -2,21 +2,40 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import Header from '../Header/Header';
 import Cards from '../Cards/Cards';
 import styles from './Characters.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchCharacters } from '../../redux/thunks';
 import Modal from '../Modal/Modal';
 import { ResultsType } from '../../types/types';
+import Pagination from '../Pagination/Pagination';
+import Sort from '../Sort/Sort';
 
 const Characters: React.FC = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
+  const [currentPageResults, setCurrentPageResults] = useState<ResultsType[]>([]);
+  const language = 'en';
+  // const pages = Math.ceil(state.results.length / 9);
+
+  useEffect(() => {
+    const currentPageResults = [];
+    let currentPageEnd = state.currentPage * 9;
+    if (currentPageEnd > state.sortResults.length) {
+      currentPageEnd = state.sortResults.length;
+    }
+
+    for (let i = state.currentPage * 9 - 9; i < currentPageEnd; i++) {
+      currentPageResults.push(state.sortResults[i]);
+    }
+    setCurrentPageResults(currentPageResults);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.currentPage, state.sortResults]);
 
   useEffect(() => {
     dispatch(fetchCharacters(state));
-    console.log('state', state.results);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
-  const language = 'en';
   return (
     <>
       <Header />
@@ -25,36 +44,21 @@ const Characters: React.FC = () => {
         <section className={styles.characters__container}>
           <span className={styles.characters__language}>language: {language}</span>
           <h2 className={styles.characters__title}>
-            {state.count} <b style={{ fontWeight: 700 }}>Peoples</b> for you to choose your favorite
+            {state.sortResults.length} <b style={{ fontWeight: 700 }}>Peoples</b> for you to choose
+            your favorite
           </h2>
-          <form className={styles.sort__form}>
-            <label className={styles.sort__label}>
-              color eye
-              <select className={styles.sort__select}>
-                <option className={styles.sort__select_option} value="all">
-                  All
-                </option>
-                <option className={styles.sort__select_option} value="brown">
-                  Brown
-                </option>
-                <option className={styles.sort__select_option} value="blue">
-                  Blue
-                </option>
-                <option className={styles.sort__select_option} value="red">
-                  Red
-                </option>
-                <option className={styles.sort__select_option} value="white">
-                  White
-                </option>
-              </select>
-            </label>
-          </form>
-          <ul className={styles.cards__list}>
-            {state.results.map((el: ResultsType) => (
-              <Cards card={el} key={el.name} />
-            ))}
-          </ul>
+          <Sort />
+          {state.status === 'loading' && <span className={styles.loading}></span>}
+          {state.status === 'serverError' && <div className={styles.cards__serverError}></div>}
+          {state.status === 'notFound' && <div className={styles.cards__searchEmpty}></div>}
+          {state.status === 'resolved' && (
+            <ul className={styles.cards__list}>
+              {currentPageResults &&
+                currentPageResults.map((el: ResultsType) => <Cards card={el} key={el.name} />)}
+            </ul>
+          )}
         </section>
+        <Pagination />
       </main>
       {state.isModal && <Modal />}
     </>

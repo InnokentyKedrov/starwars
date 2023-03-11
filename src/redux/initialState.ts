@@ -1,8 +1,8 @@
 import { InitialStateType } from '../types/types';
 
 const initialState: InitialStateType = {
-  count: 0,
   results: [],
+  sortResults: [],
   currentCard: {
     birth_year: '',
     eye_color: '',
@@ -14,8 +14,9 @@ const initialState: InitialStateType = {
     skin_color: '',
   },
   language: localStorage.getItem('language') || '',
-  status: '',
   isModal: false,
+  currentPage: 1,
+  status: '',
 };
 
 export default initialState;

@@ -7,27 +7,17 @@ const stateSlice = createSlice({
   name: 'state',
   initialState,
   reducers: {
-    // setStateForms(state, action: PayloadAction<CardType[]>) {
-    //   state.stateForms = action.payload;
-    // },
     setCurrentCard(state, action: PayloadAction<ResultsType>) {
       state.currentCard = action.payload;
     },
-    // setSearch(state, action: PayloadAction<string>) {
-    //   state.search = action.payload;
-    // },
-    // setSort(state, action: PayloadAction<string>) {
-    //   state.sort = action.payload;
-    // },
-    // setCurrentPage(state, action: PayloadAction<string>) {
-    //   state.currentPage = action.payload;
-    // },
-    // setLimit(state, action: PayloadAction<string>) {
-    //   state.limit = action.payload;
-    // },
+    setCurrentPage(state, action: PayloadAction<string>) {
+      state.currentPage = Number(action.payload);
+    },
     setIsModal(state, action: PayloadAction<boolean>) {
-      console.log('action: ', action);
       state.isModal = action.payload;
+    },
+    setSortResults(state, action: PayloadAction<ResultsType[]>) {
+      state.sortResults = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -36,30 +26,16 @@ const stateSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(fetchCharacters.fulfilled, (state, action) => {
-        console.log('action: ', action);
         state.status = 'resolved';
-        state.results = action.payload.results;
-        state.count = action.payload.count;
-        // state.total = action.payload.total?.toString() as string;
-        // state.pages = action.payload.pages?.toString() as string;
-        // state.status = Number(state.total) ? 'resolved' : 'notFound';
+        state.results = action.payload;
+        state.sortResults = action.payload;
       })
       .addCase(fetchCharacters.rejected, (state) => {
         state.status = 'serverError';
-        // state.pages = '1';
-        // state.currentPage = '1';
       });
   },
 });
 
-export const {
-  //   setStateForms,
-  setCurrentCard,
-  //   setSearch,
-  //   setSort,
-  //   setCurrentPage,
-  //   setLimit,
-  setIsModal,
-} = stateSlice.actions;
+export const { setCurrentCard, setCurrentPage, setIsModal, setSortResults } = stateSlice.actions;
 
 export default stateSlice.reducer;

@@ -11,18 +11,14 @@ export type ResultsType = {
   skin_color: string;
 };
 
-export type ApiResponse = {
-  results: ResultsType[];
-  count: number;
-};
-
 export type InitialStateType = {
-  count: number;
   results: ResultsType[];
+  sortResults: ResultsType[];
   currentCard: ResultsType;
   language: string;
-  status: string;
   isModal: boolean;
+  currentPage: number;
+  status: string;
 };
 
 export type RootState = ReturnType<typeof store.getState>;
