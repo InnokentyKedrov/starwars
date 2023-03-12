@@ -10,8 +10,13 @@ const Home: React.FC = () => {
         <section className={styles.home__container}>
           <div className={styles.home__title_wrapper}>
             <h1 className={styles.home__title}>
-              <b style={{ fontWeight: 700 }}>Find</b> all your favorite{' '}
-              <b style={{ fontWeight: 700 }}>character</b>
+              <b className={styles.home__title} style={{ fontWeight: 700 }}>
+                Find
+              </b>{' '}
+              all your favorite{' '}
+              <b className={styles.home__title} style={{ fontWeight: 700 }}>
+                character
+              </b>
             </h1>
             <p className={styles.home__title_description}>
               You can find out all the information about your favorite characters

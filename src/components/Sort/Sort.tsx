@@ -8,10 +8,10 @@ const Sort = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
 
-  const [eye, setEye] = useState<string>('');
-  const [skin, setSkin] = useState<string>('');
-  const [hair, setHair] = useState<string>('');
-  const [gender, setGender] = useState<string>('');
+  const [eye, setEye] = useState<string>('all');
+  const [skin, setSkin] = useState<string>('all');
+  const [hair, setHair] = useState<string>('all');
+  const [gender, setGender] = useState<string>('all');
 
   const eyeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setEye(event.target.value);
@@ -33,42 +33,33 @@ const Sort = () => {
     let skinArray: ResultsType[] = [];
     let hairArray: ResultsType[] = [];
     let genderArray: ResultsType[] = [];
-    console.log('eye', eye);
-    console.log('skin', skin);
-    console.log('hair', hair);
-    console.log('gender', gender);
 
     if (eye !== 'all') {
       state.results.map((el) => {
         if (el.eye_color === eye) eyeArray.push(el);
       });
     } else eyeArray = Array.from(state.results);
-    console.log('eyeArray: ', eyeArray);
     if (skin !== 'all') {
       eyeArray.map((el) => {
         if (el.skin_color === skin) skinArray.push(el);
       });
     } else skinArray = Array.from(eyeArray);
-    console.log('skinArray: ', skinArray);
     if (hair !== 'all') {
       skinArray.map((el) => {
         if (el.hair_color === hair) hairArray.push(el);
       });
     } else hairArray = Array.from(skinArray);
-    console.log('hairArray: ', hairArray);
     if (gender !== 'all') {
       hairArray.map((el) => {
         if (el.gender === gender) genderArray.push(el);
       });
     } else genderArray = Array.from(hairArray);
-    console.log('genderArray: ', genderArray);
 
     dispatch(setSortResults(genderArray));
     dispatch(setCurrentPage('1'));
   };
 
   useEffect(() => {
-    console.log(gender);
     sortData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eye, skin, hair, gender]);

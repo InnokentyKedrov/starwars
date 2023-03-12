@@ -3,13 +3,13 @@
   flex-direction: column;
   gap: 12px;
 
+  padding: 5px 26px 12px;
   padding-top: 5px;
   padding-left: 26px;
-  padding: 5px 26px 12px;
 
-  background: #f0f0f0;
+  background-color: #f0f0f0;
+  filter: drop-shadow(4px 4px 4px rgb(33 33 33 / 10%));
   border-radius: 8px;
-  filter: drop-shadow(4px 4px 4px rgba(33, 33, 33, 0.1));
 
   transition: all 0.3s ease-in-out;
 }
@@ -17,28 +17,28 @@
 .cards__item:hover {
   cursor: pointer;
 
-  transform: scale(1.1);
-
-  box-shadow: 0 0 1rem var(--main-color);
+  background-color: #f28f16;
 }
 
 .cards__item_title {
   overflow: hidden;
 
   width: 100%;
-  font-weight: 700;
+
   font-size: 18px;
+  font-weight: 700;
   line-height: 21px;
   color: #212121;
-  text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  text-shadow: 4px 4px 4px rgb(33 33 33 / 10%);
 }
 
 .heightMass__list,
 .genderBirth__list {
   display: flex;
   gap: 12px;
-  list-style-type: none;
   align-items: center;
+
+  list-style-type: none;
 }
 
 .heightMass__list {
@@ -49,37 +49,39 @@
 
 .heightMass__item {
   display: flex;
-  gap: 6px;
   flex-direction: column;
+  gap: 6px;
   align-items: center;
 }
 
 .heightMass__item_ring {
-  width: 44px;
-  height: 44px;
-  border: 3px solid #212121;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 3px solid #212121;
+  border-radius: 50%;
 }
 
 .genderBirth__list {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-size: 12px;
   line-height: 14px;
-  text-align: center;
-
   color: #212121;
+  text-align: center;
 }
 
 .genderBirth__item {
   min-width: 60px;
   padding: 1px 10px;
-  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+
   border-radius: 11px;
+  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 18%);
 }
 
 .genderBirth__item:last-child {
-  background: #07d6f2;
+  background-color: #07d6f2;
 }

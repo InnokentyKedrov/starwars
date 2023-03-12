@@ -34,7 +34,7 @@ const Characters: React.FC = () => {
   useEffect(() => {
     dispatch(fetchCharacters(state));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -44,13 +44,18 @@ const Characters: React.FC = () => {
         <section className={styles.characters__container}>
           <span className={styles.characters__language}>language: {language}</span>
           <h2 className={styles.characters__title}>
-            {state.sortResults.length} <b style={{ fontWeight: 700 }}>Peoples</b> for you to choose
-            your favorite
+            {state.sortResults.length}{' '}
+            <b className={styles.characters__title} style={{ fontWeight: 700 }}>
+              Peoples
+            </b>{' '}
+            for you to choose your favorite
           </h2>
           <Sort />
           {state.status === 'loading' && <span className={styles.loading}></span>}
           {state.status === 'serverError' && <div className={styles.cards__serverError}></div>}
-          {state.status === 'notFound' && <div className={styles.cards__searchEmpty}></div>}
+          {state.sortResults.length === 0 && state.status !== 'loading' && (
+            <div className={styles.cards__sortEmpty}></div>
+          )}
           {state.status === 'resolved' && (
             <ul className={styles.cards__list}>
               {currentPageResults &&
