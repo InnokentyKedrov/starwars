@@ -19,22 +19,11 @@ export type ResultsType = {
   worowo_oaooanoorc?: string;
 };
 
-export type ResultsTypeWookie = {
-  rhahrcaoac_roworarc: string;
-  acraahrc_oaooanoorc: string;
-  rrwowhwaworc: string;
-  corahwh_oaooanoorc: string;
-  acwoahrracao: string;
-  scracc: string;
-  whrascwo: string;
-  worowo_oaooanoorc: string;
-};
-
 export type InitialStateType = {
   results: ResultsType[];
   sortResults: ResultsType[];
   currentCard: ResultsType;
-  language: 'wookie' | 'en';
+  language: 'wookiee' | 'en';
   isModal: boolean;
   currentPage: number;
   status: string;

@@ -9,7 +9,7 @@ export const fetchCharacters = createAsyncThunk<
   { rejectValue: string }
 >('state/fetchCharacters', async function () {
   const dataArray: ResultsType[] = [];
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 9; i++) {
     const response = await fetch(`${BASE_URL}people/?page=${i}`);
 
     if (response.ok) {
@@ -21,22 +21,20 @@ export const fetchCharacters = createAsyncThunk<
   return dataArray;
 });
 
-export const fetchCharactersWookie = createAsyncThunk<
+export const fetchCharactersWookiee = createAsyncThunk<
   ResultsType[],
   InitialStateType,
   { rejectValue: string }
 >('state/fetchCharacters', async function () {
   const dataArray: ResultsType[] = [];
-  for (let i = 1; i <= 18; i++) {
+  for (let i = 1; i <= 82; i++) {
     const response = await fetch(`${BASE_URL}people/${i}/?format=wookiee`);
 
     if (response.ok) {
       const data = await response.json();
-      console.log('data: ', data);
       dataArray.push(data);
     }
   }
-  console.log('dataArray: ', dataArray);
 
   return dataArray;
 });

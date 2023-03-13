@@ -3,13 +3,13 @@ import Header from '../Header/Header';
 import Cards from '../Cards/Cards';
 import styles from './Characters.module.css';
 import { useEffect, useState } from 'react';
-import { fetchCharacters, fetchCharactersWookie } from '../../redux/thunks';
+import { fetchCharacters, fetchCharactersWookiee } from '../../redux/thunks';
 import Modal from '../Modal/Modal';
 import { ResultsType } from '../../types/types';
 import Pagination from '../Pagination/Pagination';
 import Sort from '../Sort/Sort';
-import CardsWookie from '../Cards/CardsWookie';
-import ModalWookie from '../Modal/ModalWookie';
+import CardsWookiee from '../Cards/CardsWookiee';
+import ModalWookiee from '../Modal/ModalWookiee';
 import textData from '../../data/textData';
 
 const Characters: React.FC = () => {
@@ -35,7 +35,7 @@ const Characters: React.FC = () => {
 
   useEffect(() => {
     if (state.language === 'en') dispatch(fetchCharacters(state));
-    else dispatch(fetchCharactersWookie(state));
+    else dispatch(fetchCharactersWookiee(state));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.language]);
 
@@ -68,11 +68,11 @@ const Characters: React.FC = () => {
                     currentPageResults.map((el: ResultsType) => <Cards card={el} key={el.name} />)}
                 </ul>
               )}
-              {state.language === 'wookie' && (
+              {state.language === 'wookiee' && (
                 <ul className={styles.cards__list}>
                   {currentPageResults &&
                     currentPageResults.map((el: ResultsType) => (
-                      <CardsWookie card={el} key={el.whrascwo} />
+                      <CardsWookiee card={el} key={el.whrascwo} />
                     ))}
                 </ul>
               )}
@@ -82,7 +82,7 @@ const Characters: React.FC = () => {
         <Pagination />
       </main>
       {state.language === 'en' && state.isModal && <Modal />}
-      {state.language === 'wookie' && state.isModal && <ModalWookie />}
+      {state.language === 'wookiee' && state.isModal && <ModalWookiee />}
     </>
   );
 };

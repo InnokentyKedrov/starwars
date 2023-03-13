@@ -1,123 +1,123 @@
 const textData = {
   header: {
     home: {
-      wookie: 'Acooscwo',
+      wookiee: 'Acooscwo',
       en: 'Home',
     },
     characters: {
-      wookie: 'Whrooohc',
+      wookiee: 'Whrooohc',
       en: 'Characters',
     },
   },
   home: {
     find: {
-      wookie: 'Wwahwhwa',
+      wookiee: 'Wwahwhwa',
       en: 'Find',
     },
     title: {
-      wookie: 'raanan wwrahrrraca',
+      wookiee: 'raanan wwrahrrraca',
       en: 'all your favorite',
     },
     character: {
-      wookie: 'whroooh',
+      wookiee: 'whroooh',
       en: 'character',
     },
     description: {
-      wookie: 'Roooul frtaah ghrrrooth raanan dree wwrahrrraca whrooohc',
+      wookiee: 'Roooul frtaah ghrrrooth raanan dree wwrahrrraca whrooohc',
       en: 'You can find out all the information about your favorite characters',
     },
     button: {
-      wookie: 'Raa ahwoohr...',
+      wookiee: 'Raa ahwoohr...',
       en: 'See more...',
     },
   },
   sort: {
     gender: {
       all: {
-        wookie: 'raanan',
+        wookiee: 'raanan',
         en: 'all',
       },
       male: {
-        wookie: 'scraanwo',
+        wookiee: 'scraanwo',
         en: 'male',
       },
       female: {
-        wookie: 'wwwoscraanwo',
+        wookiee: 'wwwoscraanwo',
         en: 'female',
       },
       hermaphrodite: {
-        wookie: 'acworcscraakacrcoowaahaowo',
+        wookiee: 'acworcscraakacrcoowaahaowo',
         en: 'hermaphrodite',
       },
       none: {
-        wookie: 'whoowhwo',
+        wookiee: 'whoowhwo',
         en: 'none',
       },
     },
   },
   sortLabel: {
     gender: {
-      wookie: 'rrwowhwaworc',
+      wookiee: 'rrwowhwaworc',
       en: 'gender',
     },
   },
   notFound: {
     button: {
-      wookie: 'Ahwromh',
+      wookiee: 'Ahwromh',
       en: 'Return',
     },
     alt: {
-      wookie: 'Arrgghhh.',
+      wookiee: 'Arrgghhh.',
       en: 'Death star.',
     },
   },
   characters: {
     language: {
-      wookie: 'drarrhhwe',
+      wookiee: 'drarrhhwe',
       en: 'language',
     },
     titleBold: {
-      wookie: '',
+      wookiee: '',
       en: 'Peoples',
     },
     title: {
-      wookie: 'rcwochuanaoc',
+      wookiee: 'rcwochuanaoc',
       en: 'for you to choose your favorite',
     },
   },
   card: {
     name: {
-      wookie: 'whrascwo',
+      wookiee: 'whrascwo',
       en: 'name',
     },
     height: {
-      wookie: 'acwoahrracao',
+      wookiee: 'acwoahrracao',
       en: 'height',
     },
     mass: {
-      wookie: 'scracc',
+      wookiee: 'scracc',
       en: 'mass',
     },
     gender: {
-      wookie: 'rrwowhwaworc',
+      wookiee: 'rrwowhwaworc',
       en: 'gender',
     },
     birth_year: {
-      wookie: 'rhahrcaoac_roworarc',
+      wookiee: 'rhahrcaoac_roworarc',
       en: 'birth_year',
     },
   },
   modal: {
     eye: {
-      wookie: 'worowo oaooanoorc',
+      wookiee: 'worowo oaooanoorc',
       en: 'eye color',
     },
     skin: {
-      wookie: 'corahwh oaooanoorc',
+      wookiee: 'corahwh oaooanoorc',
       en: 'skin color',
     },
     hair: {
-      wookie: 'acraahrc oaooanoorc',
+      wookiee: 'acraahrc oaooanoorc',
       en: 'hair color',
     },
   },

@@ -24,7 +24,7 @@ const Pagination: React.FC = () => {
   };
 
   const changeLanguage = () => {
-    if (state.language === 'en') dispatch(setLanguage('wookie'));
+    if (state.language === 'en') dispatch(setLanguage('wookiee'));
     else dispatch(setLanguage('en'));
   };
 

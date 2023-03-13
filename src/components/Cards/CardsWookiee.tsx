@@ -4,7 +4,7 @@ import { setCurrentCard, setIsModal } from '../../redux/slice';
 import { useAppDispatch } from '../../redux/hooks';
 import { ResultsType } from '../../types/types';
 
-const CardsWookie: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
+const CardsWookiee: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
   const dispatch = useAppDispatch();
 
   const showModal = (event: { preventDefault: () => void }): void => {
@@ -53,4 +53,4 @@ const CardsWookie: React.FC<{ card: ResultsType }> = ({ card }): ReactElement =>
   );
 };
 
-export default CardsWookie;
+export default CardsWookiee;

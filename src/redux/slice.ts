@@ -21,7 +21,7 @@ const stateSlice = createSlice({
     },
     setLanguage(state, action: PayloadAction<string>) {
       if (action.payload === 'en') state.language = 'en';
-      else state.language = 'wookie';
+      else state.language = 'wookiee';
     },
   },
   extraReducers: (builder) => {

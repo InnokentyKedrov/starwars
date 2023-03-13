@@ -5,7 +5,7 @@ import male from '../../assets/images/male.png';
 import female from '../../assets/images/female.png';
 import { setIsModal } from '../../redux/slice';
 
-const ModalWookie: React.FC = () => {
+const ModalWookiee: React.FC = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
 
@@ -85,4 +85,4 @@ const ModalWookie: React.FC = () => {
   );
 };
 
-export default ModalWookie;
+export default ModalWookiee;
