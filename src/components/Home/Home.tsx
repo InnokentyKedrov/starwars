@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import textData from '../../data/textData';
+import { useAppSelector } from '../../redux/hooks';
 import Header from '../Header/Header';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
+  const language = useAppSelector((state) => state.language);
+
   return (
     <>
       <Header />
@@ -11,18 +15,16 @@ const Home: React.FC = () => {
           <div className={styles.home__title_wrapper}>
             <h1 className={styles.home__title}>
               <b className={styles.home__title} style={{ fontWeight: 700 }}>
-                Find
+                {textData.home.find[language]}
               </b>{' '}
-              all your favorite{' '}
+              {textData.home.title[language]}{' '}
               <b className={styles.home__title} style={{ fontWeight: 700 }}>
-                character
+                {textData.home.character[language]}
               </b>
             </h1>
-            <p className={styles.home__title_description}>
-              You can find out all the information about your favorite characters
-            </p>
+            <p className={styles.home__title_description}>{textData.home.description[language]}</p>
             <Link className={styles.home__link} to="/characters">
-              See more...
+              {textData.home.button[language]}
             </Link>
           </div>
           <div className={styles.home__image}></div>

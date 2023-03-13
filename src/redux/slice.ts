@@ -19,6 +19,10 @@ const stateSlice = createSlice({
     setSortResults(state, action: PayloadAction<ResultsType[]>) {
       state.sortResults = action.payload;
     },
+    setLanguage(state, action: PayloadAction<string>) {
+      if (action.payload === 'en') state.language = 'en';
+      else state.language = 'wookie';
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -36,6 +40,7 @@ const stateSlice = createSlice({
   },
 });
 
-export const { setCurrentCard, setCurrentPage, setIsModal, setSortResults } = stateSlice.actions;
+export const { setCurrentCard, setCurrentPage, setIsModal, setSortResults, setLanguage } =
+  stateSlice.actions;
 
 export default stateSlice.reducer;

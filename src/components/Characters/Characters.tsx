@@ -3,18 +3,20 @@ import Header from '../Header/Header';
 import Cards from '../Cards/Cards';
 import styles from './Characters.module.css';
 import { useEffect, useState } from 'react';
-import { fetchCharacters } from '../../redux/thunks';
+import { fetchCharacters, fetchCharactersWookie } from '../../redux/thunks';
 import Modal from '../Modal/Modal';
 import { ResultsType } from '../../types/types';
 import Pagination from '../Pagination/Pagination';
 import Sort from '../Sort/Sort';
+import CardsWookie from '../Cards/CardsWookie';
+import ModalWookie from '../Modal/ModalWookie';
+import textData from '../../data/textData';
 
 const Characters: React.FC = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
+  const language = useAppSelector((state) => state.language);
   const [currentPageResults, setCurrentPageResults] = useState<ResultsType[]>([]);
-  const language = 'en';
-  // const pages = Math.ceil(state.results.length / 9);
 
   useEffect(() => {
     const currentPageResults = [];
@@ -32,9 +34,10 @@ const Characters: React.FC = () => {
   }, [state.currentPage, state.sortResults]);
 
   useEffect(() => {
-    dispatch(fetchCharacters(state));
+    if (state.language === 'en') dispatch(fetchCharacters(state));
+    else dispatch(fetchCharactersWookie(state));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [state.language]);
 
   return (
     <>
@@ -42,30 +45,44 @@ const Characters: React.FC = () => {
       <main className={styles.characters}>
         <h1 className="visually_hidden">Find all your favorite character</h1>
         <section className={styles.characters__container}>
-          <span className={styles.characters__language}>language: {language}</span>
+          <span className={styles.characters__language}>
+            {textData.characters.language[language]}: {state.language}
+          </span>
           <h2 className={styles.characters__title}>
             {state.sortResults.length}{' '}
             <b className={styles.characters__title} style={{ fontWeight: 700 }}>
-              Peoples
+              {textData.characters.titleBold[language]}
             </b>{' '}
-            for you to choose your favorite
+            {textData.characters.title[language]}
           </h2>
           <Sort />
           {state.status === 'loading' && <span className={styles.loading}></span>}
-          {state.status === 'serverError' && <div className={styles.cards__serverError}></div>}
           {state.sortResults.length === 0 && state.status !== 'loading' && (
             <div className={styles.cards__sortEmpty}></div>
           )}
           {state.status === 'resolved' && (
-            <ul className={styles.cards__list}>
-              {currentPageResults &&
-                currentPageResults.map((el: ResultsType) => <Cards card={el} key={el.name} />)}
-            </ul>
+            <>
+              {state.language === 'en' && (
+                <ul className={styles.cards__list}>
+                  {currentPageResults &&
+                    currentPageResults.map((el: ResultsType) => <Cards card={el} key={el.name} />)}
+                </ul>
+              )}
+              {state.language === 'wookie' && (
+                <ul className={styles.cards__list}>
+                  {currentPageResults &&
+                    currentPageResults.map((el: ResultsType) => (
+                      <CardsWookie card={el} key={el.whrascwo} />
+                    ))}
+                </ul>
+              )}
+            </>
           )}
         </section>
         <Pagination />
       </main>
-      {state.isModal && <Modal />}
+      {state.language === 'en' && state.isModal && <Modal />}
+      {state.language === 'wookie' && state.isModal && <ModalWookie />}
     </>
   );
 };

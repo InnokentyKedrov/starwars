@@ -26,14 +26,4 @@
   .sort__form {
     gap: 20px;
   }
-
-  .sort__label {
-    font-size: 12px;
-  }
-
-  .sort__select {
-    margin-left: 0;
-
-    font-size: 12px;
-  }
 }

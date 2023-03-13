@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setCurrentPage } from '../../redux/slice';
+import { setCurrentPage, setLanguage } from '../../redux/slice';
 import styles from './Pagination.module.css';
 
 const Pagination: React.FC = () => {
@@ -21,6 +21,11 @@ const Pagination: React.FC = () => {
     if (state.currentPage < pages) {
       dispatch(setCurrentPage(String(state.currentPage + 1)));
     }
+  };
+
+  const changeLanguage = () => {
+    if (state.language === 'en') dispatch(setLanguage('wookie'));
+    else dispatch(setLanguage('en'));
   };
 
   useEffect(() => {
@@ -53,7 +58,7 @@ const Pagination: React.FC = () => {
           </button>
         </li>
       </ul>
-      <span className={styles.pagination__language}></span>
+      <span className={styles.pagination__language} onClick={changeLanguage}></span>
     </section>
   );
 };

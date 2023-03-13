@@ -1,18 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '../../assets/images/logo.png';
+import textData from '../../data/textData';
+import { useAppSelector } from '../../redux/hooks';
 
 const Header: React.FC = () => {
+  const language = useAppSelector((state) => state.language);
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
         <img src={logo} alt="Star Wars logo" />
         <nav className={styles.header__navigation}>
           <NavLink className={styles.header__link} to="/" end>
-            Home
+            {textData.header.home[language]}
           </NavLink>
           <NavLink className={styles.header__link} to="/characters" end>
-            Characters
+            {textData.header.characters[language]}
           </NavLink>
         </nav>
       </div>

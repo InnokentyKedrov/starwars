@@ -7,18 +7,36 @@ export const fetchCharacters = createAsyncThunk<
   ResultsType[],
   InitialStateType,
   { rejectValue: string }
->('state/fetchCharacters', async function (state, { rejectWithValue }) {
+>('state/fetchCharacters', async function () {
   const dataArray: ResultsType[] = [];
-  for (let i = 1; i < 10; i++) {
+  for (let i = 1; i <= 2; i++) {
     const response = await fetch(`${BASE_URL}people/?page=${i}`);
 
-    if (!response.ok) {
-      return rejectWithValue('Server error!');
+    if (response.ok) {
+      const data = (await response.json()).results;
+      dataArray.push(...data);
     }
-
-    const data = (await response.json()).results;
-    dataArray.push(...data);
   }
+
+  return dataArray;
+});
+
+export const fetchCharactersWookie = createAsyncThunk<
+  ResultsType[],
+  InitialStateType,
+  { rejectValue: string }
+>('state/fetchCharacters', async function () {
+  const dataArray: ResultsType[] = [];
+  for (let i = 1; i <= 18; i++) {
+    const response = await fetch(`${BASE_URL}people/${i}/?format=wookiee`);
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('data: ', data);
+      dataArray.push(data);
+    }
+  }
+  console.log('dataArray: ', dataArray);
 
   return dataArray;
 });
