@@ -7,10 +7,11 @@ import { fetchCharacters, fetchCharactersWookiee } from '../../redux/thunks';
 import Modal from '../Modal/Modal';
 import { ResultsType } from '../../types/types';
 import Pagination from '../Pagination/Pagination';
-import Sort from '../Sort/Sort';
 import CardsWookiee from '../Cards/CardsWookiee';
 import ModalWookiee from '../Modal/ModalWookiee';
 import textData from '../../data/textData';
+import Dropdown from '../Dropdown/Dropdown';
+import { eyeColorSort, genderSort } from '../const/const';
 
 const Characters: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -55,7 +56,10 @@ const Characters: React.FC = () => {
             </b>{' '}
             {textData.characters.title[language]}
           </h2>
-          <Sort />
+          <ul className={styles.dropdown__list}>
+            <Dropdown sort={genderSort} title={textData.sortLabel.gender[language]} />
+            <Dropdown sort={eyeColorSort} title={textData.sortLabel.eye_color[language]} />
+          </ul>
           {state.status === 'loading' && <span className={styles.loading}></span>}
           {state.sortResults.length === 0 && state.status !== 'loading' && (
             <div className={styles.cards__sortEmpty}></div>

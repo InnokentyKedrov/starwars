@@ -50,9 +50,10 @@ const Modal: React.FC = () => {
           <div className={styles.modal__right}>
             <h2 className={styles.modal__title}>{state.currentCard.name}</h2>
             <ul className={styles.modal__list}>
-              {state.currentCard.eye_color !== 'n/a' && (
-                <li>eye color: {state.currentCard.eye_color}</li>
-              )}
+              {state.currentCard.eye_color !== 'n/a' &&
+                state.currentCard.eye_color !== 'unknown' && (
+                  <li>eye color: {state.currentCard.eye_color}</li>
+                )}
               {state.currentCard.skin_color !== 'n/a' && (
                 <li>skin color: {state.currentCard.skin_color}</li>
               )}

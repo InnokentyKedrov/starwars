@@ -29,6 +29,11 @@ export type InitialStateType = {
   status: string;
 };
 
+export type SortType = {
+  wookiee: string;
+  en: string;
+};
+
 export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;

@@ -67,6 +67,13 @@
   background-image: url('../../assets/images/empty.png');
 }
 
+.dropdown__list {
+  display: flex;
+  gap: 40px;
+
+  list-style-type: none;
+}
+
 @media (max-width: 1300px) {
   .cards__list {
     overflow-y: scroll;

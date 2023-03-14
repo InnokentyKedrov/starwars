@@ -52,9 +52,10 @@ const ModalWookiee: React.FC = () => {
           <div className={styles.modal__right}>
             <h2 className={styles.modal__title}>{state.currentCard.whrascwo}</h2>
             <ul className={styles.modal__list}>
-              {state.currentCard.worowo_oaooanoorc !== 'wh/ra' && (
-                <li>worowo oaooanoorc: {state.currentCard.worowo_oaooanoorc}</li>
-              )}
+              {state.currentCard.worowo_oaooanoorc !== 'wh/ra' &&
+                state.currentCard.worowo_oaooanoorc !== 'huwhorwhooohwh' && (
+                  <li>worowo oaooanoorc: {state.currentCard.worowo_oaooanoorc}</li>
+                )}
               {state.currentCard.corahwh_oaooanoorc !== 'wh/ra' && (
                 <li>corahwh oaooanoorc: {state.currentCard.corahwh_oaooanoorc}</li>
               )}

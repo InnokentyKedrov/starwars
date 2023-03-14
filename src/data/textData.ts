@@ -31,6 +31,10 @@ const textData = {
       en: 'See more...',
     },
   },
+  all: {
+    wookiee: 'raanan',
+    en: 'all',
+  },
   sort: {
     gender: {
       all: {
@@ -54,11 +58,73 @@ const textData = {
         en: 'none',
       },
     },
+    eye_color: {
+      all: {
+        wookiee: 'raanan',
+        en: 'all',
+      },
+      brown: {
+        wookiee: 'rhrcooohwh',
+        en: 'brown',
+      },
+      blue: {
+        wookiee: 'rhanhuwo',
+        en: 'blue',
+      },
+      red: {
+        wookiee: 'rcwowa',
+        en: 'red',
+      },
+      blue_gray: {
+        wookiee: 'rhanhuwo-rrrcraro',
+        en: 'blue-gray', // blue-gray != blue_gray
+      },
+      black: {
+        wookiee: 'rhanraoaor',
+        en: 'black',
+      },
+      orange: {
+        wookiee: 'oorcrawhrrwo',
+        en: 'orange',
+      },
+      hazel: {
+        wookiee: 'acraufwoan',
+        en: 'hazel',
+      },
+      pink: {
+        wookiee: 'akahwhor',
+        en: 'pink',
+      },
+      red_blue: {
+        wookiee: 'rcwowa, rhanhuwo',
+        en: 'red, blue', // red, blue != red_blue
+      },
+      gold: {
+        wookiee: 'rrooanwa',
+        en: 'gold',
+      },
+      green_yellow: {
+        wookiee: 'rrrcwowowh, rowoananoooh',
+        en: 'green, yellow', // green, yellow != green_yellow
+      },
+      white: {
+        wookiee: 'ohacahaowo',
+        en: 'white',
+      },
+      yellow: {
+        wookiee: 'rowoananoooh',
+        en: 'yellow',
+      },
+    },
   },
   sortLabel: {
     gender: {
       wookiee: 'rrwowhwaworc',
       en: 'gender',
+    },
+    eye_color: {
+      wookiee: 'worowo_oaooanoorc',
+      en: 'eye_color',
     },
   },
   notFound: {
