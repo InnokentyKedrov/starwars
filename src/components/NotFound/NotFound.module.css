@@ -12,7 +12,6 @@
 
 .notfound__title_wrapper {
   position: relative;
-
   padding: 12vh 0;
 }
 
@@ -48,6 +47,5 @@
 
 .notfound__button:hover {
   cursor: pointer;
-
   transform: scale(1.1);
 }

@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-
   background-color: var(--main-color);
   filter: drop-shadow(0 4px 4px rgb(255 255 255 / 25%));
 }
@@ -34,7 +33,6 @@
 
 .header__link:hover {
   color: #f6f7f9;
-
   border-bottom: 3px solid #cfdab0;
 }
 

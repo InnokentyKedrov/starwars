@@ -51,7 +51,7 @@ const Dropdown = (props: PropsType) => {
     sortData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentSort]);
+  }, [currentSort, state.results]);
 
   useOutsideClick([dropdownRef], () => setIsOpen(false));
 

@@ -1,6 +1,5 @@
 .home {
   width: 100%;
-
   background: linear-gradient(180deg, #1f2a63 0%, #17002f 100%);
 }
 
@@ -18,7 +17,6 @@
   display: flex;
   flex-direction: column;
   gap: 64px;
-
   max-width: 500px;
 }
 
@@ -57,30 +55,25 @@
 .home__image {
   width: 783px;
   height: 678px;
-
   background-image: url('../../assets/images/BannerComplete.png');
   background-repeat: no-repeat;
 }
 
 .home__link:hover {
   cursor: pointer;
-
   transform: scale(1.1);
-
   box-shadow: 0 0 1rem var(--main-color);
 }
 
 @media (max-width: 768px) {
   .home__container {
     flex-direction: column;
-
     margin: 20px;
     padding: 0;
   }
 
   .home__title_wrapper {
     gap: 20px;
-
     max-width: 100%;
   }
 
@@ -98,7 +91,6 @@
   .home__link {
     width: 160px;
     height: 33px;
-
     font-size: 16px;
     line-height: 18px;
   }

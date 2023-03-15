@@ -1,9 +1,7 @@
 .characters {
   position: relative;
-
   width: 100%;
   height: var(--main-height);
-
   background: linear-gradient(180deg, #fff 30.32%, #f5f5f5 100%);
 }
 
@@ -63,14 +61,12 @@
   width: 400px;
   height: 218px;
   margin: 0 auto;
-
   background-image: url('../../assets/images/empty.png');
 }
 
 .dropdown__list {
   display: flex;
   gap: 40px;
-
   list-style-type: none;
 }
 
@@ -83,7 +79,6 @@
 @media (max-width: 768px) {
   .characters__container {
     gap: 20px;
-
     height: calc(var(--main-height) - 70px);
     margin: 0 20px;
   }
