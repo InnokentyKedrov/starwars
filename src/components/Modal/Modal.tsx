@@ -4,10 +4,22 @@ import alien from '../../assets/images/alien.png';
 import male from '../../assets/images/male.png';
 import female from '../../assets/images/female.png';
 import { setIsModal } from '../../redux/slice';
+import textData from '../../data/textData';
 
 const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
-  const state = useAppSelector((state) => state);
+  const currentCard = useAppSelector((state) => state.currentCard);
+  const language = useAppSelector((state) => state.language);
+
+  type HeightType = keyof typeof currentCard;
+  const height = textData.card.height[language] as HeightType;
+  const mass = textData.card.mass[language] as HeightType;
+  const gender = textData.card.gender[language] as HeightType;
+  const birth_year = textData.card.birth_year[language] as HeightType;
+  const name = textData.card.name[language] as HeightType;
+  const eye_color = textData.card.eye_color[language] as HeightType;
+  const skin_color = textData.card.skin_color[language] as HeightType;
+  const hair_color = textData.card.hair_color[language] as HeightType;
 
   const close = () => dispatch(setIsModal(false));
 
@@ -20,58 +32,65 @@ const Modal: React.FC = () => {
           <div
             className={styles.modal__left}
             style={
-              state.currentCard.gender === 'male'
+              currentCard[gender] === textData.sort.gender.male[language]
                 ? { backgroundImage: `url(${male})` }
-                : state.currentCard.gender === 'female'
+                : currentCard[gender] === textData.sort.gender.female[language]
                 ? { backgroundImage: `url(${female})` }
                 : { backgroundImage: `url(${alien})` }
             }
           >
             <ul className={styles.genderBirth__list}>
-              {state.currentCard.gender !== 'n/a' && (
+              {currentCard[gender] !== textData.error.n_a[language] && (
                 <li
                   className={styles.genderBirth__item}
                   style={
-                    state.currentCard.gender === 'male'
+                    currentCard[gender] === textData.sort.gender.male[language]
                       ? { backgroundColor: '#73d677' }
-                      : state.currentCard.gender === 'female'
+                      : currentCard[gender] === textData.sort.gender.female[language]
                       ? { backgroundColor: '#c956ff' }
                       : { backgroundColor: '#f5db13' }
                   }
                 >
-                  {state.currentCard.gender}
+                  {currentCard[gender]}
                 </li>
               )}
-              {state.currentCard.birth_year !== 'unknown' && (
-                <li className={styles.genderBirth__item}>{state.currentCard.birth_year}</li>
-              )}
+              {currentCard[birth_year] !== textData.error.n_a[language] &&
+                currentCard[birth_year] !== textData.error.unknown[language] && (
+                  <li className={styles.genderBirth__item}>{currentCard[birth_year]}</li>
+                )}
             </ul>
           </div>
           <div className={styles.modal__right}>
-            <h2 className={styles.modal__title}>{state.currentCard.name}</h2>
+            <h2 className={styles.modal__title}>{currentCard[name]}</h2>
             <ul className={styles.modal__list}>
-              {state.currentCard.eye_color !== 'n/a' &&
-                state.currentCard.eye_color !== 'unknown' && (
-                  <li>eye color: {state.currentCard.eye_color}</li>
+              {currentCard[eye_color] !== textData.error.n_a[language] &&
+                currentCard[eye_color] !== textData.error.unknown[language] && (
+                  <li>
+                    {eye_color}: {currentCard[eye_color]}
+                  </li>
                 )}
-              {state.currentCard.skin_color !== 'n/a' && (
-                <li>skin color: {state.currentCard.skin_color}</li>
+              {currentCard[skin_color] !== textData.error.n_a[language] && (
+                <li>
+                  {skin_color}: {currentCard[skin_color]}
+                </li>
               )}
-              {state.currentCard.hair_color !== 'n/a' && (
-                <li>hair color: {state.currentCard.hair_color}</li>
+              {currentCard[hair_color] !== textData.error.n_a[language] && (
+                <li>
+                  {hair_color}: {currentCard[hair_color]}
+                </li>
               )}
             </ul>
             <ul className={styles.heightMass__list}>
-              {state.currentCard.height !== 'unknown' && (
+              {currentCard[height] !== textData.error.unknown[language] && (
                 <li className={styles.heightMass__item}>
-                  <span className={styles.heightMass__item_ring}>{state.currentCard.height}</span>
-                  <span className={styles.heightMass__item_title}>height</span>
+                  <span className={styles.heightMass__item_ring}>{currentCard[height]}</span>
+                  <span className={styles.heightMass__item_title}>{height}</span>
                 </li>
               )}
-              {state.currentCard.mass !== 'unknown' && (
+              {currentCard[mass] !== textData.error.unknown[language] && (
                 <li className={styles.heightMass__item}>
-                  <span className={styles.heightMass__item_ring}>{state.currentCard.mass}</span>
-                  <span className={styles.heightMass__item_title}>mass</span>
+                  <span className={styles.heightMass__item_ring}>{currentCard[mass]}</span>
+                  <span className={styles.heightMass__item_title}>{mass}</span>
                 </li>
               )}
             </ul>

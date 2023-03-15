@@ -35,6 +35,16 @@ const textData = {
     wookiee: 'raanan',
     en: 'all',
   },
+  error: {
+    n_a: {
+      wookiee: 'wh/ra',
+      en: 'n/a',
+    },
+    unknown: {
+      wookiee: 'huwhorwhooohwh',
+      en: 'unknown',
+    },
+  },
   sort: {
     gender: {
       all: {
@@ -171,6 +181,18 @@ const textData = {
     birth_year: {
       wookiee: 'rhahrcaoac_roworarc',
       en: 'birth_year',
+    },
+    eye_color: {
+      wookiee: 'worowo_oaooanoorc',
+      en: 'eye_color',
+    },
+    skin_color: {
+      wookiee: 'corahwh_oaooanoorc',
+      en: 'skin_color',
+    },
+    hair_color: {
+      wookiee: 'acraahrc_oaooanoorc',
+      en: 'hair_color',
     },
   },
   modal: {

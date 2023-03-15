@@ -7,11 +7,10 @@ import { fetchCharacters, fetchCharactersWookiee } from '../../redux/thunks';
 import Modal from '../Modal/Modal';
 import { ResultsType } from '../../types/types';
 import Pagination from '../Pagination/Pagination';
-import CardsWookiee from '../Cards/CardsWookiee';
-import ModalWookiee from '../Modal/ModalWookiee';
 import textData from '../../data/textData';
 import Dropdown from '../Dropdown/Dropdown';
-import { eyeColorSort, genderSort } from '../const/const';
+import { genderSort } from '../const/const';
+// import { eyeColorSort, genderSort } from '../const/const';
 
 const Characters: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -58,35 +57,24 @@ const Characters: React.FC = () => {
           </h2>
           <ul className={styles.dropdown__list}>
             <Dropdown sort={genderSort} title={textData.sortLabel.gender[language]} />
-            <Dropdown sort={eyeColorSort} title={textData.sortLabel.eye_color[language]} />
+            {/* <Dropdown sort={eyeColorSort} title={textData.sortLabel.eye_color[language]} /> */}
           </ul>
           {state.status === 'loading' && <span className={styles.loading}></span>}
           {state.sortResults.length === 0 && state.status !== 'loading' && (
             <div className={styles.cards__sortEmpty}></div>
           )}
           {state.status === 'resolved' && (
-            <>
-              {state.language === 'en' && (
-                <ul className={styles.cards__list}>
-                  {currentPageResults &&
-                    currentPageResults.map((el: ResultsType) => <Cards card={el} key={el.name} />)}
-                </ul>
-              )}
-              {state.language === 'wookiee' && (
-                <ul className={styles.cards__list}>
-                  {currentPageResults &&
-                    currentPageResults.map((el: ResultsType) => (
-                      <CardsWookiee card={el} key={el.whrascwo} />
-                    ))}
-                </ul>
-              )}
-            </>
+            <ul className={styles.cards__list}>
+              {currentPageResults &&
+                currentPageResults.map((el: ResultsType, index: number) => {
+                  return <Cards card={el} key={index} />;
+                })}
+            </ul>
           )}
         </section>
         <Pagination />
       </main>
-      {state.language === 'en' && state.isModal && <Modal />}
-      {state.language === 'wookiee' && state.isModal && <ModalWookiee />}
+      {state.isModal && <Modal />}
     </>
   );
 };
