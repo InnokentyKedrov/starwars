@@ -1,39 +1,67 @@
 const textData = {
   header: {
     home: {
-      wookiee: 'Acooscwo',
-      en: 'Home',
+      wookiee: 'meoh',
+      en: 'home',
     },
     characters: {
-      wookiee: 'Whrooohc',
-      en: 'Characters',
+      wookiee: 'ahcrasterc',
+      en: 'characters',
     },
   },
   home: {
     find: {
-      wookiee: 'Wwahwhwa',
-      en: 'Find',
+      wookiee: 'IFDN',
+      en: 'FIND',
     },
     title: {
-      wookiee: 'raanan wwrahrrraca',
+      wookiee: 'lla ryuo irvfatoe',
       en: 'all your favorite',
     },
     character: {
-      wookiee: 'whroooh',
-      en: 'character',
+      wookiee: 'AHCRATERC',
+      en: 'CHARACTER',
     },
-    description: {
-      wookiee: 'Roooul frtaah ghrrrooth raanan dree wwrahrrraca whrooohc',
-      en: 'You can find out all the information about your favorite characters',
+    description1: {
+      wookiee: 'Yuo acn ifdn uot',
+      en: 'You can find out',
+    },
+    description2: {
+      wookiee: 'lla eth firotomnnia',
+      en: 'all the information',
+    },
+    description3: {
+      wookiee: 'ubtao ryuo irvfatoe ahcrasterc',
+      en: 'about your favorite characters',
     },
     button: {
-      wookiee: 'Raa ahwoohr...',
+      wookiee: 'Ese erom...',
       en: 'See more...',
     },
   },
   all: {
-    wookiee: 'raanan',
+    wookiee: 'lla',
     en: 'all',
+  },
+  sidebar: {
+    persons: {
+      wookiee: 'onsersp',
+      en: 'persons',
+    },
+    person: {
+      wookiee: 'onserp',
+      en: 'person',
+    },
+  },
+  charactersHeader: {
+    choose: {
+      wookiee: 'OSOHES',
+      en: 'CHOOSE',
+    },
+    favorite: {
+      wookiee: 'ryuo irvfatoe',
+      en: 'your favorite',
+    },
   },
   error: {
     n_a: {

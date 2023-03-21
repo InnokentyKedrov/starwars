@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import styles from './Cards.module.css';
-import { setCurrentCard, setIsModal } from '../../redux/slice';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { ResultsType } from '../../types/types';
-import textData from '../../data/textData';
+import { setCurrentCard, setIsModal } from '../../../../redux/slice';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { ResultsType } from '../../../../types/types';
+import textData from '../../../../data/textData';
 
 const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
   const dispatch = useAppDispatch();

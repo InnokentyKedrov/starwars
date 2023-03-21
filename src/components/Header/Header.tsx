@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
-        <img src={logo} alt="Star Wars logo" />
+        <img className={styles.header__logo} src={logo} alt="Star Wars logo" />
         <nav className={styles.header__navigation}>
           <NavLink className={styles.header__link} to="/" end>
             {textData.header.home[language]}

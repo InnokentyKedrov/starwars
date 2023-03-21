@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import textData from '../../data/textData';
-import { useAppDispatch, useAppSelector, useOutsideClick } from '../../redux/hooks';
-import { setCurrentPage, setSortResults } from '../../redux/slice';
-import { ResultsType, SortType } from '../../types/types';
+import textData from '../../../../data/textData';
+import { useAppDispatch, useAppSelector, useOutsideClick } from '../../../../redux/hooks';
+import { setCurrentPage, setSortResults } from '../../../../redux/slice';
+import { ResultsType, SortType } from '../../../../types/types';
 import styles from './Dropdown.module.css';
 
 interface PropsType {

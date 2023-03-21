@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setCurrentPage, setSortResults } from '../../redux/slice';
-import { ResultsType } from '../../types/types';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { setCurrentPage, setSortResults } from '../../../../redux/slice';
+import { ResultsType } from '../../../../types/types';
 import styles from './Sort.module.css';
-import textData from '../../data/textData';
+import textData from '../../../../data/textData';
 
 const Sort = () => {
   const dispatch = useAppDispatch();

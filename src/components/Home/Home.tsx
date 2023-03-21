@@ -13,16 +13,22 @@ const Home: React.FC = () => {
       <main className={styles.home}>
         <section className={styles.home__container}>
           <div className={styles.home__title_wrapper}>
-            <h1 className={styles.home__title}>
-              <b className={styles.home__title} style={{ fontWeight: 700 }}>
-                {textData.home.find[language]}
-              </b>{' '}
-              {textData.home.title[language]}{' '}
-              <b className={styles.home__title} style={{ fontWeight: 700 }}>
-                {textData.home.character[language]}
-              </b>
-            </h1>
-            <p className={styles.home__title_description}>{textData.home.description[language]}</p>
+            <div className={styles.home__title}>
+              <span className={styles.home__title_bold}>{textData.home.find[language]} </span>
+              <span className={styles.home__title_normal}>{textData.home.title[language]} </span>
+              <span className={styles.home__title_bold}>{textData.home.character[language]}</span>
+            </div>
+            <div className={styles.home__title_description_wrapper}>
+              <p className={styles.home__title_description}>
+                {textData.home.description1[language]}
+              </p>
+              <p className={styles.home__title_description}>
+                {textData.home.description2[language]}
+              </p>
+              <p className={styles.home__title_description}>
+                {textData.home.description3[language]}
+              </p>
+            </div>
             <Link className={styles.home__link} to="/characters">
               {textData.home.button[language]}
             </Link>

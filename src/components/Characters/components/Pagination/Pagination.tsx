@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setCurrentPage, setLanguage } from '../../redux/slice';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { setCurrentPage, setLanguage } from '../../../../redux/slice';
 import styles from './Pagination.module.css';
 
 const Pagination: React.FC = () => {

@@ -1,0 +1,15 @@
+.charactersHeader {
+  width: 100%;
+  display: flex;
+  gap: 4rem;
+}
+
+.charactersHeader__title_bold {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.charactersHeader__title_normal {
+  font-size: 3rem;
+  color: #8af1ff;
+}

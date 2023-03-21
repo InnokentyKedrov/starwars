@@ -1,0 +1,21 @@
+.sidebar {
+  width: var(--sidebar-width);
+  margin: 0 2rem;
+}
+
+.sidebar__title {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 9rem;
+}
+
+.sidebar__title_number {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+.sidebar__title_text {
+  font-size: 2.5rem;
+  font-weight: 300;
+}

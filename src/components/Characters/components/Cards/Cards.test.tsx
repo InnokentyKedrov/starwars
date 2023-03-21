@@ -2,7 +2,7 @@ import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import store from '../../redux/store';
+import store from '../../../../redux/store';
 import Cards from './Cards';
 
 const data = {
