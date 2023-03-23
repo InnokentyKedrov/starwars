@@ -3,6 +3,7 @@
 }
 
 .home__container {
+  position: relative;
   display: flex;
 
   max-width: var(--max-width);
@@ -35,7 +36,7 @@
 .home__title_normal {
   font-size: 2.5rem;
   font-weight: 500;
-  color: #ffc107;
+  color: var(--second-color);
   white-space: nowrap;
 }
 
@@ -52,6 +53,7 @@
 }
 
 .home__link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,19 +64,19 @@
   color: #212121;
   text-decoration: none;
 
-  background-color: #24e5ff;
   border-radius: 0.7rem;
-  box-shadow: inset 0 -0.5rem 0 rgb(0 0 0 / 18%);
-
-  transition: all 0.3s ease-in-out;
+  background: linear-gradient(rgb(36, 229, 225), rgb(38, 197, 195)) rgb(30, 251, 247);
+  box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5),
+    0 0 1px 1px rgba(0, 1, 6, 0.2);
+  transition: 0.2s ease-in-out;
 }
 
 .home__image {
   position: absolute;
   width: 931px;
-  height: 931px;
-  top: 0;
-  right: 10vw;
+  height: 1024px;
+  top: -133px;
+  right: -2rem;
   background-image: url('../../assets/images/BannerComplete.png');
   background-repeat: no-repeat;
   z-index: -1;
@@ -82,7 +84,14 @@
 
 .home__link:hover {
   cursor: pointer;
-  background-color: #ffc107;
+  background: linear-gradient(rgb(36, 229, 225), rgb(58, 155, 154)) rgb(132, 239, 237);
+}
+
+.home__link:active {
+  top: 1px;
+  background: linear-gradient(rgb(19, 130, 128), rgb(11, 70, 69)) rgb(74, 159, 158);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset, 0 2px 3px rgba(0, 0, 0, 0.5) inset,
+    0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {

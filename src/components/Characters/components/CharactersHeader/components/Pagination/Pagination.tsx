@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
-import { setCurrentPage, setLanguage } from '../../../../redux/slice';
+import { useAppDispatch, useAppSelector } from '../../../../../../redux/hooks';
+import { setCurrentPage, setLanguage } from '../../../../../../redux/slice';
 import styles from './Pagination.module.css';
 
 const Pagination: React.FC = () => {
@@ -38,7 +38,9 @@ const Pagination: React.FC = () => {
       <ul className={styles.pagination__list}>
         <li className={styles.pagination__item}>
           <button
-            className={disableLeft ? styles.pagination__buttonDisabled : styles.pagination__button}
+            className={
+              disableLeft ? styles.pagination__buttonDisabled_left : styles.pagination__button_left
+            }
             onClick={onClickLeft}
           >
             {'<'}
@@ -51,7 +53,11 @@ const Pagination: React.FC = () => {
         </li>
         <li className={styles.pagination__item}>
           <button
-            className={disableRight ? styles.pagination__buttonDisabled : styles.pagination__button}
+            className={
+              disableRight
+                ? styles.pagination__buttonDisabled_right
+                : styles.pagination__button_right
+            }
             onClick={onClickRight}
           >
             {'>'}

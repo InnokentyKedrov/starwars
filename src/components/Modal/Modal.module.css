@@ -9,6 +9,7 @@
 
   width: 100vw;
   height: 100vh;
+  z-index: 1;
 }
 
 .modal__container_opacity {
@@ -24,166 +25,82 @@
 }
 
 .modal__card {
+  position: relative;
   z-index: 1;
 
   display: flex;
   flex-direction: column;
+  background-color: #000;
+  border-radius: 10px;
+  padding: 2rem;
 
   width: 800px;
-  height: 420px;
+  height: 480px;
+}
+
+.modal__card_title {
+  font-size: 3rem;
 }
 
 .modal__close {
-  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 
-  width: 32px;
-  height: 32px;
-  margin-bottom: 17px;
-  padding: 1px;
+  width: 44px;
+  height: 44px;
+  color: #24e5ff;
+  font-size: 100px;
 
   background-color: transparent;
-  background-image: url('../../assets/images/closeIcon.png');
   border: none;
+  transform: rotate(45deg);
 
   transition: all 0.3s ease-in-out;
 }
 
 .modal__close:hover {
   cursor: pointer;
-  transform: scale(1.2);
 }
 
-.modal__card_content {
+.modal__card_content_wrapper {
   display: flex;
-  height: 370px;
-  background: linear-gradient(180deg, #17002f 42.19%, #1f2a63 100%);
-  border-radius: 16px;
 }
 
-.modal__left {
-  display: flex;
-
-  width: 45%;
-  height: 100%;
-
-  background-color: #1f2a63;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  box-shadow: 4px 4px 8px rgb(1 28 64 / 20%);
-}
-
-.genderBirth__list {
-  display: flex;
-  gap: 12px;
-  align-self: flex-end;
-
-  margin-right: 16px;
-  margin-bottom: 16px;
-  margin-left: auto;
-
-  font-family: Roboto;
-  font-size: 12px;
-  line-height: 14px;
-  color: #212121;
-  text-align: center;
+.modal__card_content_list_title,
+.modal__card_content_list_data {
   list-style-type: none;
+  height: 323px;
 }
 
-.genderBirth__item {
-  min-width: 60px;
-  padding: 1px 10px;
-  border-radius: 11px;
-  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 18%);
+.modal__card_content_list_title {
+  padding-right: 0.75rem;
+  border-right: 1px solid #fff;
 }
 
-.genderBirth__item:last-child {
-  background: #07d6f2;
+.modal__card_content_list_data {
+  padding-left: 0.75rem;
 }
 
-.modal__right {
-  display: flex;
-  flex-direction: column;
-
-  width: 55%;
-  height: 100%;
-  padding: 30px 12px 25px;
+.modal__card_content_title,
+.modal__card_content_data {
+  font-size: 1rem;
+  line-height: 200%;
 }
 
-.modal__title {
-  overflow: hidden;
-  display: -webkit-box;
+.modal__card_content_title {
+  margin-left: 3rem;
+  text-align: end;
+}
 
-  margin-top: 18px;
-  margin-bottom: 23px;
-
-  font-size: 36px;
+.modal__card_content_data {
   font-weight: 700;
-  line-height: 42px;
-  color: #fdfdfd;
-  text-shadow: 4px 4px 4px rgb(33 33 33 / 10%);
-
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
 }
 
-.modal__list {
-  max-width: 100%;
-  margin-bottom: auto;
-  padding: 16px 23px;
-
-  font-size: 16px;
-  line-height: 19px;
-  color: #000;
-  list-style-type: none;
-
-  background: #fdfdfd;
-  border-radius: 8px;
-  box-shadow: 4px 4px 4px rgb(33 33 33 / 10%);
-}
-
-.heightMass__list {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-
-  font-size: 15px;
-  line-height: 18px;
-  color: #212121;
-  list-style-type: none;
-}
-
-.heightMass__item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: center;
-  justify-content: center;
-
-  height: 70px;
-  padding: 0 10px;
-
-  background: #fdfdfd;
-  border-radius: 8px;
-  box-shadow: 4px 4px 24px rgb(1 17 38 / 20%);
-}
-
-.heightMass__item_ring {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 44px;
-  height: 44px;
-
-  border: 3px solid #212121;
-  border-radius: 50%;
-}
-
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .modal__card {
     margin: 0 20px;
   }
@@ -203,4 +120,4 @@
     font-size: 28px;
     line-height: 36px;
   }
-}
+} */

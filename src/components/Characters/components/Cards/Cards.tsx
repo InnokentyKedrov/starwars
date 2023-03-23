@@ -14,6 +14,7 @@ const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
   const mass = textData.card.mass[language] as HeightType;
   const gender = textData.card.gender[language] as HeightType;
   const birth_year = textData.card.birth_year[language] as HeightType;
+  const year = textData.modal.year[language] as HeightType;
   const name = textData.card.name[language] as HeightType;
 
   const showModal = (event: { preventDefault: () => void }): void => {
@@ -25,39 +26,44 @@ const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
   return (
     <li className={styles.cards__item} onClick={showModal}>
       <h3 className={styles.cards__item_title}>{card[name]}</h3>
-      <ul className={styles.heightMass__list}>
-        {card[height] !== textData.error.unknown[language] && (
-          <li className={styles.heightMass__item}>
-            <span className={styles.heightMass__item_ring}>{card[height]}</span>
-            <span className={styles.heightMass__item_title}>{height}</span>
-          </li>
-        )}
-        {card[mass] !== textData.error.unknown[language] && (
-          <li className={styles.heightMass__item}>
-            <span className={styles.heightMass__item_ring}>{card[mass]}</span>
-            <span className={styles.heightMass__item_title}>{mass}</span>
-          </li>
-        )}
-      </ul>
-      <ul className={styles.genderBirth__list}>
-        {card[gender] !== textData.error.n_a[language] && (
-          <li
-            className={styles.genderBirth__item}
-            style={
-              card[gender] === textData.sort.gender.male[language]
-                ? { backgroundColor: '#73d677' }
-                : card[gender] === textData.sort.gender.female[language]
-                ? { backgroundColor: '#c956ff' }
-                : { backgroundColor: '#f5db13' }
-            }
-          >
-            {card[gender]}
-          </li>
-        )}
-        {card[birth_year] !== textData.error.unknown[language] && (
-          <li className={styles.genderBirth__item}>{card[birth_year]}</li>
-        )}
-      </ul>
+      <div className={styles.cards__content_wrapper}>
+        <ul className={styles.cards__content_list_title}>
+          {card[height] !== textData.error.unknown[language] && (
+            <li className={styles.cards__content_item_title}>
+              <span className={styles.heightMass__item_title}>{height}</span>
+            </li>
+          )}
+          {card[mass] !== textData.error.unknown[language] && (
+            <li className={styles.cards__content_item_title}>
+              <span className={styles.heightMass__item_title}>{mass}</span>
+            </li>
+          )}
+          {card[gender] !== textData.error.n_a[language] && (
+            <li className={styles.cards__content_item_title}>{gender}</li>
+          )}
+          {card[birth_year] !== textData.error.unknown[language] && (
+            <li className={styles.cards__content_item_title}>{year}</li>
+          )}
+        </ul>
+        <ul className={styles.cards__content_list_data}>
+          {card[height] !== textData.error.unknown[language] && (
+            <li className={styles.cards__content_item_data}>{card[height]}</li>
+          )}
+          {card[mass] !== textData.error.unknown[language] && (
+            <li className={styles.cards__content_item_data}>{card[mass]}</li>
+          )}
+          {card[gender] !== textData.error.n_a[language] && (
+            <li className={styles.cards__content_item_data}>{card[gender]}</li>
+          )}
+          {card[birth_year] !== textData.error.unknown[language] && (
+            <li className={styles.cards__content_item_data}>{card[birth_year]}</li>
+          )}
+        </ul>
+        <div
+          className={styles.cards__item_image}
+          style={{ backgroundImage: `url('/avatars/${card.name}.jpg')` }}
+        />
+      </div>
     </li>
   );
 };

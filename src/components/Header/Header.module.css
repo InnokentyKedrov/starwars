@@ -4,10 +4,9 @@
 
 .header__container {
   position: relative;
-  padding-top: 2.5rem;
-  padding-bottom: 4rem;
+  padding: 2.5rem 2rem 4rem;
 
-  max-width: calc(var(--max-width) - 2 * 2rem);
+  max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
   justify-content: end;
@@ -16,7 +15,7 @@
 .header__logo {
   position: absolute;
   top: 2rem;
-  left: 0;
+  left: 2rem;
   width: 216px;
   height: 216px;
 }
@@ -24,21 +23,20 @@
 .header__navigation {
   display: flex;
   gap: 4rem;
-  margin-right: 2rem;
 }
 
 .header__link {
   margin: auto 0;
 
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--third-color);
   text-decoration: none;
 
   transition: all 400ms ease-in-out;
 }
 
 .header__link:hover {
-  color: #ffc107;
+  color: var(--second-color);
   text-decoration: underline;
 }
 

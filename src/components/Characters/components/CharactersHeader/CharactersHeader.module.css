@@ -1,7 +1,8 @@
 .charactersHeader {
   width: 100%;
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
+  justify-content: flex-end;
 }
 
 .charactersHeader__title_bold {

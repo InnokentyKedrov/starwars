@@ -1,7 +1,7 @@
 import styles from './CharactersHeader.module.css';
 import textData from '../../../../data/textData';
 import { useAppSelector } from '../../../../redux/hooks';
-import Pagination from '../Pagination/Pagination';
+import Pagination from './components/Pagination/Pagination';
 
 const CharactersHeader = () => {
   const language = useAppSelector((state) => state.language);

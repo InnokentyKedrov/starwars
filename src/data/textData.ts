@@ -224,6 +224,10 @@ const textData = {
     },
   },
   modal: {
+    year: {
+      wookiee: 'rhahrcaoac roworarc',
+      en: 'birth year',
+    },
     eye: {
       wookiee: 'worowo oaooanoorc',
       en: 'eye color',
