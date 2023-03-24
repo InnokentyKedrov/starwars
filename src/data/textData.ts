@@ -225,7 +225,7 @@ const textData = {
   },
   modal: {
     year: {
-      wookiee: 'rhahrcaoac roworarc',
+      wookiee: 'roworarc',
       en: 'birth year',
     },
     eye: {

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import styles from './Cards.module.css';
 import { setCurrentCard, setIsModal } from '../../../../redux/slice';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
@@ -17,11 +17,35 @@ const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
   const year = textData.modal.year[language] as HeightType;
   const name = textData.card.name[language] as HeightType;
 
+  const imageUrl = () => {
+    if (language === 'en') return card.name;
+    else {
+      switch (card.whrascwo) {
+        case 'Lhuorwo Sorroohraanorworc':
+          return 'Luke Skywalker';
+        case 'Drarcaoac Vrawaworc':
+          return 'Darth Vader';
+        case 'Lwoahra Orcrrrawhra':
+          return 'Leia Organa';
+        case 'Oohwowh Lrarcc':
+          return 'Owen Lars';
+
+        default:
+          break;
+      }
+    }
+  };
+
   const showModal = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
     dispatch(setCurrentCard(card));
     dispatch(setIsModal(true));
   };
+
+  useEffect(() => {
+    console.log('card.name: ', card.name);
+    console.log(imageUrl());
+  });
 
   return (
     <li className={styles.cards__item} onClick={showModal}>
@@ -61,7 +85,7 @@ const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
         </ul>
         <div
           className={styles.cards__item_image}
-          style={{ backgroundImage: `url('/avatars/${card.name}.jpg')` }}
+          style={{ backgroundImage: `url('/avatars/${imageUrl()}.jpg')` }}
         />
       </div>
     </li>
