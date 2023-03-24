@@ -2,14 +2,43 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '../../assets/images/logo.png';
 import textData from '../../data/textData';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { setLanguage } from '../../redux/slice';
 
 const Header: React.FC = () => {
+  const dispatch = useAppDispatch();
   const language = useAppSelector((state) => state.language);
+
+  const changeLanguage = () => {
+    if (language === 'en') dispatch(setLanguage('wookiee'));
+    else dispatch(setLanguage('en'));
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
         <img className={styles.header__logo} src={logo} alt="Star Wars logo" />
+        <div className={styles.language}>
+          <label className={styles.switch}>
+            <input type="checkbox" onClick={changeLanguage} />
+            <span
+              className={`${styles.slider} ${language === 'en' && styles.sliderEng} ${
+                language === 'wookiee' && styles.sliderRu
+              }  ${styles.round}`}
+            ></span>
+          </label>
+          <div className={styles.languageText}>
+            <span
+              className={`${styles.languageRus} ${language === 'wookiee' && styles.activeLanguage}`}
+            >
+              wookiee
+            </span>
+            <span className={`${styles.languageEng} ${language === 'en' && styles.activeLanguage}`}>
+              english
+            </span>
+          </div>
+        </div>
+
         <nav className={styles.header__navigation}>
           <NavLink className={styles.header__link} to="/" end>
             {textData.header.home[language]}

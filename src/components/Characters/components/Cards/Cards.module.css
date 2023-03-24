@@ -32,6 +32,7 @@
 
 .cards__content_list_title,
 .cards__content_list_data {
+  max-width: 100px;
   list-style-type: none;
   color: var(--main-color);
 }
@@ -47,8 +48,15 @@
   padding-left: 0.5rem;
 }
 
+.cards__content_item_title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .cards__content_item_data {
+  overflow: hidden;
   font-weight: 700;
+  text-overflow: ellipsis;
 }
 
 .cards__item_image {

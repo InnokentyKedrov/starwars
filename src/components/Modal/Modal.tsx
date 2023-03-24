@@ -1,8 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import styles from './Modal.module.css';
-import alien from '../../assets/images/alien.png';
-import male from '../../assets/images/male.png';
-import female from '../../assets/images/female.png';
 import { setIsModal } from '../../redux/slice';
 import textData from '../../data/textData';
 
@@ -62,9 +59,10 @@ const Modal: React.FC = () => {
             {currentCard[skin_color] !== textData.error.unknown[language] && (
               <li className={styles.modal__card_content_title}>{skin}</li>
             )}
-            {currentCard[hair_color] !== textData.error.unknown[language] && (
-              <li className={styles.modal__card_content_title}>{hair}</li>
-            )}
+            {currentCard[hair_color] !== textData.error.unknown[language] &&
+              currentCard[hair_color] !== textData.error.n_a[language] && (
+                <li className={styles.modal__card_content_title}>{hair}</li>
+              )}
           </ul>
           <ul className={styles.modal__card_content_list_data}>
             {currentCard[height] !== textData.error.unknown[language] && (
@@ -85,9 +83,10 @@ const Modal: React.FC = () => {
             {currentCard[skin_color] !== textData.error.unknown[language] && (
               <li className={styles.modal__card_content_data}>{currentCard[skin_color]}</li>
             )}
-            {currentCard[hair_color] !== textData.error.unknown[language] && (
-              <li className={styles.modal__card_content_data}>{currentCard[hair_color]}</li>
-            )}
+            {currentCard[hair_color] !== textData.error.unknown[language] &&
+              currentCard[hair_color] !== textData.error.n_a[language] && (
+                <li className={styles.modal__card_content_data}>{currentCard[hair_color]}</li>
+              )}
           </ul>
         </div>
       </div>

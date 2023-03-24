@@ -27,6 +27,7 @@
 .modal__card {
   position: relative;
   z-index: 1;
+  left: 124px;
 
   display: flex;
   flex-direction: column;
