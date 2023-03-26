@@ -1,18 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './Sidebar.module.css';
 import textData from '../../../../data/textData';
 import { useAppSelector } from '../../../../redux/hooks';
 import Dropdown from '../Dropdown/Dropdown';
-import { eyeColorSort, genderSort } from '../../../const/const';
+import {
+  constEyeColorSort,
+  constGenderSort,
+  constHairColorSort,
+  constSkinColorSort,
+} from '../../../const/const';
+import { ResultsType } from '../../../../types/types';
+import { setCurrentPage, setSortResults } from '../../../../redux/slice';
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   const state = useAppSelector((state) => state);
   const language = useAppSelector((state) => state.language);
   const [plusActive, setPlusActive] = useState<boolean>(false);
+
   const [genderDrop, setGenderDrop] = useState<boolean>(false);
   const [eyeDrop, setEyeDrop] = useState<boolean>(false);
   const [hairDrop, setHairDrop] = useState<boolean>(false);
   const [skinDrop, setSkinDrop] = useState<boolean>(false);
+
+  const [genderSort, setGenderSort] = useState<string>(textData.all[language]);
+  const [skinColorSort, setSkinColorSort] = useState<string>(textData.all[language]);
+  const [hairColorSort, setHairColorSort] = useState<string>(textData.all[language]);
+  const [eyeColorSort, setEyeColorSort] = useState<string>(textData.all[language]);
+
   const count = state.sortResults.length;
 
   const sortTitleClick = (event: React.MouseEvent<HTMLLIElement>) => {
@@ -35,6 +51,53 @@ const Sidebar = () => {
         break;
     }
   };
+
+  const sortData = (): void => {
+    let genderArray: ResultsType[] = [];
+    let skinColorArray: ResultsType[] = [];
+    let hairColorArray: ResultsType[] = [];
+    let eyeColorArray: ResultsType[] = [];
+
+    if (genderSort !== textData.all[language]) {
+      state.results.map((el) => {
+        type ObjectKey = keyof typeof el;
+        if (el[textData.sortLabel.gender[language] as ObjectKey] === genderSort)
+          genderArray.push(el);
+      });
+    } else genderArray = Array.from(state.results);
+
+    if (skinColorSort !== textData.all[language]) {
+      genderArray.map((el) => {
+        type ObjectKey = keyof typeof el;
+        if (el[textData.sortLabel.skin_color[language] as ObjectKey] === skinColorSort)
+          skinColorArray.push(el);
+      });
+    } else skinColorArray = Array.from(genderArray);
+
+    if (hairColorSort !== textData.all[language]) {
+      skinColorArray.map((el) => {
+        type ObjectKey = keyof typeof el;
+        if (el[textData.sortLabel.hair_color[language] as ObjectKey] === hairColorSort)
+          hairColorArray.push(el);
+      });
+    } else hairColorArray = Array.from(skinColorArray);
+
+    if (eyeColorSort !== textData.all[language]) {
+      hairColorArray.map((el) => {
+        type ObjectKey = keyof typeof el;
+        if (el[textData.sortLabel.eye_color[language] as ObjectKey] === eyeColorSort)
+          eyeColorArray.push(el);
+      });
+    } else eyeColorArray = Array.from(hairColorArray);
+
+    dispatch(setSortResults(eyeColorArray));
+    dispatch(setCurrentPage('1'));
+  };
+
+  useEffect(() => {
+    sortData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [genderSort, skinColorSort, hairColorSort, eyeColorSort, state.results]);
 
   return (
     <section className={styles.sidebar}>
@@ -75,10 +138,12 @@ const Sidebar = () => {
           >
             <span className={styles.sort__item_gender_span}></span>
             <Dropdown
-              sort={genderSort}
+              constSort={constGenderSort}
               title={textData.sortLabel.gender[language]}
               drop={genderDrop}
               setDrop={setGenderDrop}
+              sort={genderSort}
+              setSort={setGenderSort}
             />
           </li>
           <li
@@ -90,10 +155,12 @@ const Sidebar = () => {
           >
             <span className={styles.sort__item_eye_span}></span>
             <Dropdown
-              sort={eyeColorSort}
+              constSort={constEyeColorSort}
               title={textData.sortLabel.eye_color[language]}
               drop={eyeDrop}
               setDrop={setEyeDrop}
+              sort={eyeColorSort}
+              setSort={setEyeColorSort}
             />
           </li>
           <li
@@ -104,6 +171,14 @@ const Sidebar = () => {
             onClick={sortTitleClick}
           >
             <span className={styles.sort__item_hair_span}></span>
+            <Dropdown
+              constSort={constHairColorSort}
+              title={textData.sortLabel.hair_color[language]}
+              drop={hairDrop}
+              setDrop={setHairDrop}
+              sort={hairColorSort}
+              setSort={setHairColorSort}
+            />
           </li>
           <li
             className={
@@ -113,6 +188,14 @@ const Sidebar = () => {
             onClick={sortTitleClick}
           >
             <span className={styles.sort__item_skin_span}></span>
+            <Dropdown
+              constSort={constSkinColorSort}
+              title={textData.sortLabel.skin_color[language]}
+              drop={skinDrop}
+              setDrop={setSkinDrop}
+              sort={skinColorSort}
+              setSort={setSkinColorSort}
+            />
           </li>
         </ul>
       </div>

@@ -22,18 +22,18 @@ const Header: React.FC = () => {
           <label className={styles.switch}>
             <input type="checkbox" onClick={changeLanguage} />
             <span
-              className={`${styles.slider} ${language === 'en' && styles.sliderEng} ${
-                language === 'wookiee' && styles.sliderRu
+              className={`${styles.slider} ${language === 'en' && styles.sliderEn} ${
+                language === 'wookiee' && styles.sliderWo
               }  ${styles.round}`}
             ></span>
           </label>
           <div className={styles.languageText}>
             <span
-              className={`${styles.languageRus} ${language === 'wookiee' && styles.activeLanguage}`}
+              className={`${styles.languageWo} ${language === 'wookiee' && styles.activeLanguage}`}
             >
               wookiee
             </span>
-            <span className={`${styles.languageEng} ${language === 'en' && styles.activeLanguage}`}>
+            <span className={`${styles.languageEn} ${language === 'en' && styles.activeLanguage}`}>
               english
             </span>
           </div>

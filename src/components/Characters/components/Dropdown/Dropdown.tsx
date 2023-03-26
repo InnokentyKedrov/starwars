@@ -1,75 +1,47 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import textData from '../../../../data/textData';
-import { useAppDispatch, useAppSelector, useOutsideClick } from '../../../../redux/hooks';
-import { setCurrentPage, setSortResults } from '../../../../redux/slice';
-import { ResultsType, SortType } from '../../../../types/types';
+import { useAppSelector, useOutsideClick } from '../../../../redux/hooks';
+import { SortType } from '../../../../types/types';
 import styles from './Dropdown.module.css';
 
 interface PropsType {
-  sort: SortType[];
+  constSort: SortType[];
   title: string;
   drop: boolean;
   setDrop: React.Dispatch<React.SetStateAction<boolean>>;
+  sort: string;
+  setSort: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Dropdown = (props: PropsType) => {
-  const dispatch = useAppDispatch();
-  const state = useAppSelector((state) => state);
+const Dropdown = ({ constSort, title, drop, setDrop, sort, setSort }: PropsType) => {
   const language = useAppSelector((state) => state.language);
-  const [currentSort, setCurrentSort] = useState<string>(textData.all[language]);
-  const [currentSortObject, setCurrentSortObject] = useState<SortType>(textData.all);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const onClick = (el: SortType): void => {
-    setCurrentSort(el[language]);
-    setCurrentSortObject(el);
+    setSort(el[language]);
   };
 
-  const sortData = (): void => {
-    let currentArray: ResultsType[] = [];
-
-    if (currentSort !== textData.all[language]) {
-      state.results.map((el) => {
-        type ObjectKey = keyof typeof el;
-        if (el[props.title as ObjectKey] === currentSort) currentArray.push(el);
-      });
-    } else currentArray = Array.from(state.results);
-
-    dispatch(setSortResults(currentArray));
-    dispatch(setCurrentPage('1'));
-  };
-
-  useEffect(() => {
-    setCurrentSort(currentSortObject[language]);
-  }, [currentSortObject, language]);
-
-  useEffect(() => {
-    sortData();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentSort, state.results]);
-
-  useOutsideClick([dropdownRef], () => props.setDrop(false));
+  useOutsideClick([dropdownRef], () => setDrop(false));
 
   return (
-    <div className={props.drop ? styles.dropdown_active : styles.dropdown} ref={dropdownRef}>
+    <div className={drop ? styles.dropdown_active : styles.dropdown} ref={dropdownRef}>
       <h3
         className={styles.dropdown__current}
         style={
-          props.title === 'gender'
+          title === 'gender' || title === 'rrwowhwaworc'
             ? { backgroundColor: '#ffdd78' }
-            : props.title === 'skin'
+            : title === 'skin_color' || title === 'corahwh_oaooanoorc'
             ? { backgroundColor: '#ffc107' }
-            : props.title === 'hair'
+            : title === 'hair_color' || title === 'acraahrc_oaooanoorc'
             ? { backgroundColor: '#b99369' }
             : { backgroundColor: '#73d677' }
         }
       >
-        {currentSort}
+        {sort}
       </h3>
       <ul className={styles.dropdown__list}>
-        {props.sort.map((el) => {
-          return el[language] !== currentSort ? (
+        {constSort.map((el) => {
+          return el[language] !== sort ? (
             <li
               className={styles.dropdown__item}
               key={`${textData.all[language]}_${el[language]}`}

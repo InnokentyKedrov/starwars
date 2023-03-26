@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import styles from './Modal.module.css';
 import { setIsModal } from '../../redux/slice';
 import textData from '../../data/textData';
+import { imageUrl } from '../const/const';
 
 const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ const Modal: React.FC = () => {
       <div className={styles.modal__container_opacity} onClick={close} />
       <div
         className={styles.modal__card}
-        style={{ backgroundImage: `url('/avatars/${currentCard.name}.jpg')` }}
+        style={{ backgroundImage: `url('/avatars/${imageUrl(language, currentCard)}.jpg')` }}
       >
         <h3 className={styles.modal__card_title}>{currentCard[name]}</h3>
         <button className={styles.modal__close} onClick={close}>

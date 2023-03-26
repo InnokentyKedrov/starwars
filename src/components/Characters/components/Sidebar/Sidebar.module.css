@@ -23,7 +23,7 @@
 
 .sidebar__sorter {
   position: relative;
-  margin-top: 21rem;
+  margin-top: 19rem;
 }
 
 .sidebar__plus,
@@ -168,4 +168,18 @@
 .sidebar__sort_item_gender_active {
   transform: translateY(-304px);
   opacity: 1;
+}
+
+@media (max-width: 1439px) {
+  .sidebar__title {
+    margin-top: 6rem;
+  }
+
+  .sidebar__title_number {
+    font-size: 2.5rem;
+  }
+
+  .sidebar__title_text {
+    font-size: 2rem;
+  }
 }

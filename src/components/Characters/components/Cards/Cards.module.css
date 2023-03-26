@@ -22,6 +22,8 @@
 
   width: 100%;
   color: var(--main-color);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   font-size: 1.5rem;
 }

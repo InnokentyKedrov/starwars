@@ -40,7 +40,7 @@ const textData = {
     },
   },
   all: {
-    wookiee: 'lla',
+    wookiee: 'raanan',
     en: 'all',
   },
   sidebar: {
@@ -163,6 +163,14 @@ const textData = {
     eye_color: {
       wookiee: 'worowo_oaooanoorc',
       en: 'eye_color',
+    },
+    skin_color: {
+      wookiee: 'corahwh_oaooanoorc',
+      en: 'skin_color',
+    },
+    hair_color: {
+      wookiee: 'acraahrc_oaooanoorc',
+      en: 'hair_color',
     },
   },
   notFound: {
