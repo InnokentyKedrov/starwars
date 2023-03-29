@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import Header from '../Header/Header';
 import Cards from './components/Cards/Cards';
 import styles from './Characters.module.css';
 import { useEffect, useState } from 'react';
@@ -14,6 +13,7 @@ const Characters: React.FC = () => {
   const state = useAppSelector((state) => state);
   const [currentPageResults, setCurrentPageResults] = useState<ResultsType[]>([]);
   const [width, setWidth] = useState(window.innerWidth);
+  const [isModal, setIsModal] = useState<boolean>(false);
 
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
@@ -46,7 +46,6 @@ const Characters: React.FC = () => {
 
   return (
     <>
-      <Header />
       <main className={styles.characters}>
         <h1 className="visually_hidden">Find all your favorite character</h1>
         <div className={styles.characters__wrapper}>
@@ -62,14 +61,14 @@ const Characters: React.FC = () => {
               <ul className={styles.cards__list}>
                 {currentPageResults &&
                   currentPageResults.map((el: ResultsType, index: number) => {
-                    return <Cards card={el} key={index} />;
+                    return <Cards card={el} key={index} setIsModal={setIsModal} />;
                   })}
               </ul>
             )}
           </section>
         </div>
       </main>
-      {state.isModal && <Modal />}
+      {isModal && <Modal setIsModal={setIsModal} />}
     </>
   );
 };

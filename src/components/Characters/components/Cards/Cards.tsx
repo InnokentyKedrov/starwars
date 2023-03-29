@@ -1,12 +1,17 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import styles from './Cards.module.css';
-import { setCurrentCard, setIsModal } from '../../../../redux/slice';
+import { setCurrentCard } from '../../../../redux/slice';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import { ResultsType } from '../../../../types/types';
 import textData from '../../../../data/textData';
 import { imageUrl } from '../../../const/const';
 
-const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
+type PropsType = {
+  card: ResultsType;
+  setIsModal: (args: boolean) => void;
+};
+
+const Cards = ({ card, setIsModal }: PropsType) => {
   const dispatch = useAppDispatch();
   const language = useAppSelector((state) => state.language);
 
@@ -21,7 +26,7 @@ const Cards: React.FC<{ card: ResultsType }> = ({ card }): ReactElement => {
   const showModal = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
     dispatch(setCurrentCard(card));
-    dispatch(setIsModal(true));
+    setIsModal(true);
   };
 
   return (

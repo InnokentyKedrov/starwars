@@ -13,9 +13,6 @@ const stateSlice = createSlice({
     setCurrentPage(state, action: PayloadAction<string>) {
       state.currentPage = Number(action.payload);
     },
-    setIsModal(state, action: PayloadAction<boolean>) {
-      state.isModal = action.payload;
-    },
     setSortResults(state, action: PayloadAction<ResultsType[]>) {
       state.sortResults = action.payload;
     },
@@ -40,7 +37,6 @@ const stateSlice = createSlice({
   },
 });
 
-export const { setCurrentCard, setCurrentPage, setIsModal, setSortResults, setLanguage } =
-  stateSlice.actions;
+export const { setCurrentCard, setCurrentPage, setSortResults, setLanguage } = stateSlice.actions;
 
 export default stateSlice.reducer;

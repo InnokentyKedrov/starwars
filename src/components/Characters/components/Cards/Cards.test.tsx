@@ -22,7 +22,7 @@ describe('Cards', () => {
       <BrowserRouter>
         <Provider store={store}>
           <Routes>
-            <Route path="*" element={<Cards card={data} key={data.name} />} />
+            <Route path="*" element={<Cards card={data} key={data.name} setIsModal={() => {}} />} />
           </Routes>
         </Provider>
       </BrowserRouter>
@@ -35,7 +35,7 @@ describe('Cards', () => {
       <BrowserRouter>
         <Provider store={store}>
           <Routes>
-            <Route path="*" element={<Cards card={data} key={data.name} />} />
+            <Route path="*" element={<Cards card={data} key={data.name} setIsModal={() => {}} />} />
           </Routes>
         </Provider>
       </BrowserRouter>

@@ -24,7 +24,6 @@ export type InitialStateType = {
   sortResults: ResultsType[];
   currentCard: ResultsType;
   language: 'wookiee' | 'en';
-  isModal: boolean;
   currentPage: number;
   status: string;
 };

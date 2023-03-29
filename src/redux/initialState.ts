@@ -22,7 +22,6 @@ const initialState: InitialStateType = {
     worowo_oaooanoorc: '',
   },
   language: 'en',
-  isModal: false,
   currentPage: 1,
   status: '',
 };

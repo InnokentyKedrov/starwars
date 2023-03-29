@@ -1,11 +1,13 @@
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
 import styles from './Modal.module.css';
-import { setIsModal } from '../../redux/slice';
 import textData from '../../data/textData';
 import { imageUrl } from '../const/const';
 
-const Modal: React.FC = () => {
-  const dispatch = useAppDispatch();
+type PropsType = {
+  setIsModal: (args: boolean) => void;
+};
+
+const Modal = ({ setIsModal }: PropsType) => {
   const currentCard = useAppSelector((state) => state.currentCard);
   const language = useAppSelector((state) => state.language);
 
@@ -23,7 +25,7 @@ const Modal: React.FC = () => {
   const skin = textData.modal.skin[language] as HeightType;
   const hair = textData.modal.hair[language] as HeightType;
 
-  const close = () => dispatch(setIsModal(false));
+  const close = () => setIsModal(false);
 
   return (
     <section className={styles.modal__container}>
