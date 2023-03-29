@@ -32,7 +32,6 @@ const Sidebar = () => {
   const count = state.sortResults.length;
 
   const sortTitleClick = (event: React.MouseEvent<HTMLLIElement>) => {
-    event.stopPropagation();
     switch (event.currentTarget.id) {
       case 'gender':
         setGenderDrop(!genderDrop);
@@ -98,6 +97,13 @@ const Sidebar = () => {
     sortData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [genderSort, skinColorSort, hairColorSort, eyeColorSort, state.results]);
+
+  useEffect(() => {
+    setGenderSort(textData.all[language]);
+    setEyeColorSort(textData.all[language]);
+    setHairColorSort(textData.all[language]);
+    setSkinColorSort(textData.all[language]);
+  }, [language]);
 
   return (
     <section className={styles.sidebar}>

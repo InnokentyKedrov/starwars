@@ -13,6 +13,15 @@ const Characters: React.FC = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
   const [currentPageResults, setCurrentPageResults] = useState<ResultsType[]>([]);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResizeWindow);
+    return () => {
+      window.removeEventListener('resize', handleResizeWindow);
+    };
+  }, []);
 
   useEffect(() => {
     const currentPageResults = [];
@@ -41,9 +50,10 @@ const Characters: React.FC = () => {
       <main className={styles.characters}>
         <h1 className="visually_hidden">Find all your favorite character</h1>
         <div className={styles.characters__wrapper}>
-          <Sidebar />
+          {width > 1046 && <Sidebar />}
           <section className={styles.characters__container}>
             <CharactersHeader />
+            {width <= 1046 && <Sidebar />}
             {state.status === 'loading' && <span className={styles.loading}></span>}
             {state.sortResults.length === 0 && state.status !== 'loading' && (
               <div className={styles.cards__sortEmpty}></div>

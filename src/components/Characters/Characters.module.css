@@ -4,6 +4,7 @@
 
 .characters__wrapper {
   position: relative;
+
   display: flex;
   gap: 2rem;
 
@@ -11,32 +12,23 @@
   height: var(--main-height);
   margin: 0 auto;
   padding: 0 2rem;
+
+  background-image: url('../../assets/images/falcon.jpg');
+  background-repeat: no-repeat;
+  background-position: right top;
 }
 
 .characters__container {
   position: absolute;
   left: 280px;
+
   display: flex;
   flex-direction: column;
   gap: 28px;
-  padding-right: 2rem;
 
   width: calc(100% - 280px);
   height: var(--main-height);
-
-  background-image: url('../../assets/images/falcon.png');
-  background-repeat: no-repeat;
-  background-position: right;
-}
-
-.characters__language {
-  margin-left: auto;
-  padding-top: 28px;
-
-  font-family: 'Source Sans Pro';
-  font-size: 16px;
-  line-height: 20px;
-  color: #4b4b4b;
+  padding-right: 2rem;
 }
 
 .characters__title {
@@ -52,22 +44,24 @@
 
 .loading {
   position: relative;
-  width: 100%;
-  height: 100%;
 }
 
 .loading::after {
   content: '';
+
   position: absolute;
+  z-index: 1;
+  top: calc(50% + 9.5rem);
+  left: calc(50% - 5rem);
+
   width: 10rem;
   height: 10rem;
-  top: calc(50% - 5rem);
-  left: calc(50% - 5rem);
+
   border: 12px double #f6f3e3;
-  border-radius: 50%;
   border-left-style: solid;
+  border-radius: 50%;
+
   animation: rotate 1s infinite linear;
-  z-index: 1;
 }
 
 @keyframes rotate {
@@ -76,11 +70,15 @@
   }
 }
 
+/* ---------- */
+
 .cards__list {
   overflow-x: hidden;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
+  grid-template-columns: repeat(auto-fill, 355px);
   gap: 1.25rem;
+  justify-content: center;
+
   margin-bottom: 1rem;
 
   list-style-type: none;
@@ -99,10 +97,24 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1046px) {
+  .characters__wrapper {
+    flex-direction: column;
+  }
+
   .characters__container {
-    gap: 20px;
-    height: calc(var(--main-height) - 70px);
-    margin: 0 20px;
+    position: relative;
+    left: 0;
+
+    gap: 10px;
+
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 732px) {
+  .characters__container {
+    gap: 0;
   }
 }

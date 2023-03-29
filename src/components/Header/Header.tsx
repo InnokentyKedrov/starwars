@@ -18,6 +18,16 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.header__container}>
         <img className={styles.header__logo} src={logo} alt="Star Wars logo" />
+
+        <nav className={styles.header__navigation}>
+          <NavLink className={styles.header__link} to="/" end>
+            {textData.header.home[language]}
+          </NavLink>
+          <NavLink className={styles.header__link} to="/characters" end>
+            {textData.header.characters[language]}
+          </NavLink>
+        </nav>
+
         <div className={styles.language}>
           <label className={styles.switch}>
             <input type="checkbox" onClick={changeLanguage} />
@@ -38,15 +48,6 @@ const Header: React.FC = () => {
             </span>
           </div>
         </div>
-
-        <nav className={styles.header__navigation}>
-          <NavLink className={styles.header__link} to="/" end>
-            {textData.header.home[language]}
-          </NavLink>
-          <NavLink className={styles.header__link} to="/characters" end>
-            {textData.header.characters[language]}
-          </NavLink>
-        </nav>
       </div>
     </header>
   );

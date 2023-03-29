@@ -8,10 +8,6 @@ const CharactersHeader = () => {
 
   return (
     <section className={styles.charactersHeader}>
-      {/* <span className={styles.characters__language}>
-        {textData.characters.language[language]}: {state.language}
-      </span> */}
-
       <div className={styles.charactersHeader__title}>
         <span className={styles.charactersHeader__title_bold}>
           {textData.charactersHeader.choose[language]}{' '}

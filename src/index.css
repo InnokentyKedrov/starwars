@@ -31,7 +31,6 @@ body {
   background-color: var(--main-color);
 
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .visually_hidden {
@@ -62,9 +61,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f28f16;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--main-color);
+  background-color: #f28f16;
 }

@@ -1,5 +1,6 @@
 .modal__container {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
 
@@ -9,7 +10,6 @@
 
   width: 100vw;
   height: 100vh;
-  z-index: 1;
 }
 
 .modal__container_opacity {
@@ -31,12 +31,13 @@
 
   display: flex;
   flex-direction: column;
-  background-color: #000;
-  border-radius: 10px;
-  padding: 2rem;
 
   width: 800px;
   height: 480px;
+  padding: 2rem;
+
+  background-color: #000;
+  border-radius: 10px;
 }
 
 .modal__card_title {
@@ -44,21 +45,23 @@
 }
 
 .modal__close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   top: 1rem;
   right: 1rem;
+  transform: rotate(45deg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   width: 44px;
   height: 44px;
-  color: #24e5ff;
+
   font-size: 100px;
+  color: #24e5ff;
 
   background-color: transparent;
   border: none;
-  transform: rotate(45deg);
 
   transition: all 0.3s ease-in-out;
 }
@@ -73,8 +76,8 @@
 
 .modal__card_content_list_title,
 .modal__card_content_list_data {
-  list-style-type: none;
   height: 323px;
+  list-style-type: none;
 }
 
 .modal__card_content_list_title {
@@ -101,24 +104,43 @@
   font-weight: 700;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 1046px) {
   .modal__card {
-    margin: 0 20px;
+    left: 0;
+    background-position: -200px top;
+  }
+}
+
+@media (max-width: 864px) {
+  .modal__card {
+    width: 476px;
+    height: 377px;
+    padding: 1.25rem 1.5rem;
   }
 
-  .genderBirth__item {
+  .modal__card_title {
+    margin-bottom: 2.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .modal__close {
+    top: 0;
+    right: 0;
+  }
+
+  .modal__card_content_list_title {
+    height: 268px;
+  }
+
+  .modal__card_content_title,
+  .modal__card_content_data {
     overflow: hidden;
-    max-width: 110px;
+
+    max-width: 100px;
+    margin-left: 0;
+
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
-
-  .modal__right {
-    padding: 12px;
-  }
-
-  .modal__title {
-    margin-top: 0;
-    font-size: 28px;
-    line-height: 36px;
-  }
-} */
+}

@@ -13,28 +13,29 @@
 }
 
 .notfound__button {
-  padding: 1.25rem 5rem;
   margin-top: auto;
   margin-bottom: 10rem;
+  padding: 1.25rem 5rem;
 
   font-size: 1.75rem;
   color: #212121;
 
+  background: linear-gradient(rgb(36 229 225), rgb(38 197 195)) rgb(30 251 247);
   border-radius: 0.7rem;
-  background: linear-gradient(rgb(36, 229, 225), rgb(38, 197, 195)) rgb(30, 251, 247);
-  box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5),
-    0 0 1px 1px rgba(0, 1, 6, 0.2);
+  box-shadow: 0 1px rgb(255 255 255 / 20%) inset, 0 3px 5px rgb(0 1 6 / 50%),
+    0 0 1px 1px rgb(0 1 6 / 20%);
+
   transition: 0.2s ease-in-out;
 }
 
 .notfound__button:hover {
   cursor: pointer;
-  background: linear-gradient(rgb(36, 229, 225), rgb(58, 155, 154)) rgb(132, 239, 237);
+  background: linear-gradient(rgb(36 229 225), rgb(58 155 154)) rgb(132 239 237);
 }
 
 .notfound__button:active {
   top: 1px;
-  background: linear-gradient(rgb(19, 130, 128), rgb(11, 70, 69)) rgb(74, 159, 158);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset, 0 2px 3px rgba(0, 0, 0, 0.5) inset,
-    0 1px 1px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(rgb(19 130 128), rgb(11 70 69)) rgb(74 159 158);
+  box-shadow: 0 0 1px rgb(0 0 0 / 50%) inset, 0 2px 3px rgb(0 0 0 / 50%) inset,
+    0 1px 1px rgb(255 255 255 / 10%);
 }

@@ -1,8 +1,8 @@
 .charactersHeader {
-  width: 100%;
   display: flex;
   gap: 3rem;
   justify-content: flex-end;
+  width: 100%;
 }
 
 .charactersHeader__title_bold {
@@ -13,4 +13,25 @@
 .charactersHeader__title_normal {
   font-size: 3rem;
   color: #8af1ff;
+  white-space: nowrap;
+}
+
+@media (max-width: 1046px) {
+  .charactersHeader {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-end;
+  }
+
+  .charactersHeader__title {
+    order: 1;
+  }
+
+  .charactersHeader__title_bold {
+    font-size: 2.5rem;
+  }
+
+  .charactersHeader__title_normal {
+    font-size: 2.5rem;
+  }
 }
