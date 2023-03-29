@@ -259,13 +259,6 @@
     margin: 0;
   }
 
-  .sidebar__sort_item_skin_active,
-  .sidebar__sort_item_hair_active,
-  .sidebar__sort_item_eye_active,
-  .sidebar__sort_item_gender_active {
-    transform: translateY(0);
-  }
-
   .sidebar__sort_item_skin_active {
     transform: translateX(124px);
   }
@@ -293,6 +286,17 @@
   .sidebar__plus_active {
     width: 6rem;
     height: 6rem;
+  }
+
+  .sidebar__sort_item_skin,
+  .sidebar__sort_item_hair,
+  .sidebar__sort_item_eye,
+  .sidebar__sort_item_gender,
+  .sidebar__sort_item_skin_active,
+  .sidebar__sort_item_hair_active,
+  .sidebar__sort_item_eye_active,
+  .sidebar__sort_item_gender_active {
+    bottom: -206px;
   }
 
   .sidebar__sort_item_skin_active {
@@ -356,18 +360,18 @@
   }
 
   .sidebar__sort_item_skin_active {
-    transform: translateX(130px);
+    transform: translateX(120px);
   }
 
   .sidebar__sort_item_hair_active {
-    transform: translateX(218px);
+    transform: translateX(208px);
   }
 
   .sidebar__sort_item_eye_active {
-    transform: translateX(306px);
+    transform: translateX(296px);
   }
 
   .sidebar__sort_item_gender_active {
-    transform: translateX(394px);
+    transform: translateX(384px);
   }
 }

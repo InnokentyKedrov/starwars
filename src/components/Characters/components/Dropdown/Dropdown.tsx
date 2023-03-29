@@ -37,7 +37,7 @@ const Dropdown = ({ constSort, title, drop, setDrop, sort, setSort }: PropsType)
             : { backgroundColor: '#73d677' }
         }
       >
-        {sort}
+        {sort !== 'acworcscraakacrcoowaahaowo' ? sort : 'Acworcscraa...'}
       </h3>
       <ul className={styles.dropdown__list}>
         {constSort.map((el) => {
@@ -47,7 +47,7 @@ const Dropdown = ({ constSort, title, drop, setDrop, sort, setSort }: PropsType)
               key={`${textData.all[language]}_${el[language]}`}
               onClick={() => onClick(el)}
             >
-              {`${el[language]}`}
+              {el[language] !== 'acworcscraakacrcoowaahaowo' ? el[language] : 'acworcscraa...'}
             </li>
           ) : (
             <li key={el[language]}></li>
