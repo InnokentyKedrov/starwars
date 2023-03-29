@@ -79,6 +79,18 @@
   transition: 0.2s ease-in-out;
 }
 
+.home__link:hover {
+  cursor: pointer;
+  background: linear-gradient(rgb(36 229 225), rgb(58 155 154)) rgb(132 239 237);
+}
+
+.home__link:active {
+  top: 1px;
+  background: linear-gradient(rgb(19 130 128), rgb(11 70 69)) rgb(74 159 158);
+  box-shadow: 0 0 1px rgb(0 0 0 / 50%) inset, 0 2px 3px rgb(0 0 0 / 50%) inset,
+    0 1px 1px rgb(255 255 255 / 10%);
+}
+
 .home__image {
   position: absolute;
   z-index: -1;
@@ -92,49 +104,71 @@
   background-repeat: no-repeat;
 }
 
-.home__link:hover {
-  cursor: pointer;
-  background: linear-gradient(rgb(36 229 225), rgb(58 155 154)) rgb(132 239 237);
-}
-
-.home__link:active {
-  top: 1px;
-  background: linear-gradient(rgb(19 130 128), rgb(11 70 69)) rgb(74 159 158);
-  box-shadow: 0 0 1px rgb(0 0 0 / 50%) inset, 0 2px 3px rgb(0 0 0 / 50%) inset,
-    0 1px 1px rgb(255 255 255 / 10%);
-}
-
-@media (max-width: 768px) {
-  .home__container {
-    flex-direction: column;
-    margin: 20px;
-    padding: 0;
-  }
-
-  .home__title_wrapper {
-    gap: 20px;
-    max-width: 100%;
-  }
-
+@media (max-width: 1300px) {
   .home__title {
-    font-size: 36px;
-    line-height: 42px;
-    letter-spacing: 2px;
+    max-width: 400px;
+  }
+
+  .home__title_bold {
+    font-size: 4rem;
+  }
+
+  .home__title_normal {
+    font-size: 2rem;
   }
 
   .home__title_description {
     font-size: 16px;
     line-height: 18px;
   }
+}
 
+@media (max-width: 1046px) {
   .home__link {
-    width: 160px;
-    height: 33px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 2rem;
     font-size: 16px;
     line-height: 18px;
   }
 
+  .home__title_description_wrapper {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1014px) {
+  .home__link {
+    top: 111px;
+  }
+
+  .home__link:active {
+    top: 112px;
+  }
+
   .home__image {
+    width: 600px;
+
     background-size: contain;
+    background-position: right 4rem;
+  }
+}
+
+@media (max-width: 732px) {
+  .home__container {
+    flex-direction: column;
+  }
+
+  .home__title_wrapper {
+    margin: 2rem auto 0;
+  }
+
+  .home__image {
+    position: relative;
+    top: -2rem;
+    width: 100%;
+
+    background-position: bottom;
   }
 }

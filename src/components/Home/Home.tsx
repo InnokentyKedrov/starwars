@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import textData from '../../data/textData';
 import { useAppSelector } from '../../redux/hooks';
@@ -6,11 +7,29 @@ import styles from './Home.module.css';
 
 const Home: React.FC = () => {
   const language = useAppSelector((state) => state.language);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResizeWindow);
+    return () => {
+      window.removeEventListener('resize', handleResizeWindow);
+    };
+  }, []);
+
+  const Button = () => {
+    return (
+      <Link className={styles.home__link} to="/characters">
+        {textData.home.button[language]}
+      </Link>
+    );
+  };
 
   return (
     <>
       <Header />
       <main className={styles.home}>
+        {width <= 1046 && <Button />}
         <section className={styles.home__container}>
           <div className={styles.home__title_wrapper}>
             <div className={styles.home__title}>
@@ -29,9 +48,7 @@ const Home: React.FC = () => {
                 {textData.home.description3[language]}
               </p>
             </div>
-            <Link className={styles.home__link} to="/characters">
-              {textData.home.button[language]}
-            </Link>
+            {width > 1046 && <Button />}
           </div>
           <div className={styles.home__image}></div>
         </section>

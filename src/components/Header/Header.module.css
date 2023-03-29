@@ -151,8 +151,4 @@
     width: 8rem;
     height: 8rem;
   }
-
-  .header__link:last-child {
-    display: none;
-  }
 }

@@ -67,3 +67,9 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #f28f16;
 }
+
+@media (max-width: 870px) {
+  .active {
+    display: none;
+  }
+}
