@@ -104,7 +104,11 @@
   background-repeat: no-repeat;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1366px) {
+  .home__title_wrapper {
+    margin-top: 7rem;
+  }
+
   .home__title {
     max-width: 400px;
   }
