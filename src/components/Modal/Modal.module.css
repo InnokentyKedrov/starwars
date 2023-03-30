@@ -155,7 +155,13 @@
   }
 
   .modal__card_title {
-    margin-bottom: 1.5rem;
+    overflow: hidden;
+    min-height: 58px;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   .modal__card_content_list_title {
