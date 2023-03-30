@@ -152,3 +152,20 @@
     height: 8rem;
   }
 }
+
+@media (max-width: 539px) {
+  .header__container {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    padding: 2rem 1rem 1rem;
+  }
+
+  .header__logo {
+    left: 1rem;
+  }
+
+  .header__navigation {
+    order: 2;
+  }
+}

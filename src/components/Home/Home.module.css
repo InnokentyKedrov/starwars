@@ -111,6 +111,7 @@
 
   .home__title {
     max-width: 400px;
+    margin: 0 auto;
   }
 
   .home__title_bold {
@@ -174,5 +175,34 @@
     width: 100%;
 
     background-position: bottom;
+  }
+}
+
+@media (max-width: 539px) {
+  .home__title_wrapper {
+    margin: 0;
+    margin-top: 3rem;
+  }
+
+  .home__title {
+    max-width: 361px;
+    margin-bottom: 1rem;
+  }
+
+  .home__title_bold {
+    font-size: 3rem;
+  }
+
+  .home__title_normal {
+    font-size: 1.5rem;
+  }
+
+  .home__link {
+    top: 90px;
+    right: 1rem;
+  }
+
+  .home__link:active {
+    top: 91px;
   }
 }

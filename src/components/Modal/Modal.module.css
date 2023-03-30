@@ -144,3 +144,21 @@
     white-space: nowrap;
   }
 }
+
+@media (max-width: 539px) {
+  .modal__card {
+    width: 361px;
+    height: 320px;
+    background-size: 150%;
+    background-position: -120px center;
+    background-repeat: no-repeat;
+  }
+
+  .modal__card_title {
+    margin-bottom: 1.5rem;
+  }
+
+  .modal__card_content_list_title {
+    height: 230px;
+  }
+}
