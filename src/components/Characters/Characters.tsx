@@ -55,7 +55,11 @@ const Characters: React.FC = () => {
             {width <= 1046 && <Sidebar />}
             {state.status === 'loading' && <span className={styles.loading}></span>}
             {state.sortResults.length === 0 && state.status !== 'loading' && (
-              <div className={styles.cards__sortEmpty}></div>
+              <div className={styles.cards__sortEmpty}>
+                <span>Sorry,</span>
+                <span>no one people</span>
+                <span>under this params</span>
+              </div>
             )}
             {state.status === 'resolved' && (
               <ul className={styles.cards__list}>

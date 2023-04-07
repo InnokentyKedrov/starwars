@@ -149,19 +149,22 @@
   .modal__card {
     width: 361px;
     height: 320px;
-    background-size: 150%;
-    background-position: -120px center;
+
     background-repeat: no-repeat;
+    background-position: -120px center;
+    background-size: 150%;
   }
 
   .modal__card_title {
     overflow: hidden;
+    display: -webkit-box;
+
     min-height: 58px;
     margin-bottom: 0;
-    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    -webkit-box-orient: vertical;
   }
 
   .modal__card_content_list_title {

@@ -60,9 +60,7 @@
 .dropdown__item {
   margin-bottom: 12px;
   padding: 0 2rem;
-
   font-size: 1.25rem;
-
   transition: all 0.3s;
 }
 
@@ -130,7 +128,6 @@
     margin: 0.5rem;
     margin-top: 0;
     padding: 6px 0.5rem;
-
     font-size: 1rem;
   }
 

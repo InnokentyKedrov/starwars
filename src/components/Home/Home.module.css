@@ -134,6 +134,7 @@
     z-index: 1;
     top: 0;
     right: 2rem;
+
     font-size: 16px;
     line-height: 18px;
   }
@@ -154,9 +155,8 @@
 
   .home__image {
     width: 600px;
-
-    background-size: contain;
     background-position: right 4rem;
+    background-size: contain;
   }
 }
 
@@ -173,7 +173,6 @@
     position: relative;
     top: -2rem;
     width: 100%;
-
     background-position: bottom;
   }
 }

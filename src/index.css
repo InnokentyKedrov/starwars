@@ -3,7 +3,7 @@
   --second-color: #ffc107;
   --third-color: #fff;
   --max-width: 1440px;
-  --header-height: 133px;
+  --header-height: 127px;
   --main-height: calc(100vh - var(--header-height));
   --sidebar-width: 216px;
 }

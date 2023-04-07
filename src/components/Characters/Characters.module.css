@@ -85,10 +85,19 @@
 }
 
 .cards__sortEmpty {
-  width: 400px;
-  height: 218px;
+  display: flex;
+  flex-direction: column;
+
   margin: 0 auto;
-  background-image: url('../../assets/images/empty.png');
+
+  font-size: 3rem;
+  color: var(--second-color);
+}
+
+.cards__sortEmpty span {
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
 }
 
 @media (max-width: 1300px) {
